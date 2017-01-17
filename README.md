@@ -26,9 +26,9 @@ pcmanfm
 playerctl
 ranger
 redshift
+ripgrep
 rxvt-unicode
 rxvt-unicode-terminfo
-silver-searcher-git
 skype
 slack-desktop
 smplayer
