@@ -50,6 +50,7 @@ zathura-pdf-mupdf
 ## Fish Shell Plugins
 ```
 fisher install simple done omf/fasd fzf gitignore omf/marlin transfer
+set -U FZF_LEGACY_KEYBINDINGS 0
 ```
 
 # TODO
