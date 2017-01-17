@@ -36,6 +36,7 @@ transmission-cli
 ttf-font-awesome
 ttf-ubuntu-font-family
 unrar
+urxvt-resize-font-git
 vim
 zathura
 zathura-pdf-mupdf

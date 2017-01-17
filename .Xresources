@@ -6,7 +6,6 @@ URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 1
 
 URxvt.perl-ext-common: resize-font
-
 URxvt.resize-font.smaller: C-minus
 URxvt.resize-font.bigger: C-equal
 
