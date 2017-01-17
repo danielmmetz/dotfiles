@@ -26,6 +26,8 @@ pcmanfm
 playerctl
 ranger
 redshift
+rxvt-unicode
+rxvt-unicode-terminfo
 silver-searcher-git
 skype
 slack-desktop
@@ -37,6 +39,7 @@ ttf-font-awesome
 ttf-ubuntu-font-family
 unrar
 urxvt-resize-font-git
+urxvt-vtwheel
 vim
 zathura
 zathura-pdf-mupdf
