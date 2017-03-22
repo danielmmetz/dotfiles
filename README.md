@@ -53,7 +53,21 @@ fisher install simple done omf/fasd fzf gitignore omf/marlin transfer
 set -U FZF_LEGACY_KEYBINDINGS 0
 ```
 
+## Vim Set-up
+### Install dein.vim
+```
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.vim/dein
+```
+### Install plugins
+Inside vim:
+```
+:call dein#install()
+```
+
 # TODO
-* write script to auto-symlink all configs
-* add brew packages
-* add transmission writeup
+  - [ ] write script to auto-symlink all configs
+  - [ ] theme .Xresources via `#include`
+  - [ ] add brew packages
+  - [ ] add transmission writeup
+
