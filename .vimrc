@@ -17,6 +17,8 @@ if dein#load_state(expand('~/.vim/dein'))
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-unimpaired')
   call dein#add('AndrewRadev/splitjoin.vim')
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+  call dein#add('junegunn/fzf.vim')
   call dein#add('fatih/vim-go')
 
   call dein#end()
@@ -29,30 +31,37 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " personal settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" settings
+" misc settings
 set clipboard=unnamed
 set mouse=a
+
+" visual settings
 set nowrap
 set number
+set cursorline
+
+" tab settings
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set cursorline
 
-" mappings
+" fold settings
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+nnoremap <space> za
+
+" misc mappings
 nmap Y y$
 
-" other
-let g:netrw_liststyle=3
-let g:netrw_banner=0
+" netrw
+let g:netrw_banner = 0  " hide the top banner
+let g:netrw_liststyle = 3  " tree style listing
+let g:netrw_browse_split = 4  " file opens in previous window (so netrw persists)
+let g:netrw_winsize = 25
+augroup ProjectDrawer  " file drawer on start
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
 
-
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 4
-" let g:netrw_altv = 1
-" let g:netrw_winsize = 25
-" augroup ProjectDrawer
-" 		autocmd!
-" 		autocmd VimEnter * :Vexplore
-" augroup END
