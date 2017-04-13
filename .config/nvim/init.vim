@@ -3,7 +3,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 
-" color schemes
+" ui enhancements
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'rakr/vim-one'
 
 " code navigation
 Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' }
@@ -27,6 +30,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'peterrincker/vim-argumentative'
 Plug 'raimondi/delimitMate'
 Plug 'wellle/targets.vim'
+Plug 'itchyny/vim-cursorword'
 
 " language specific
 Plug 'fatih/vim-go',                 { 'for': 'go' }
@@ -47,6 +51,10 @@ augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance / behavior
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set termguicolors
+colorscheme one
+set background=dark
+
 set clipboard^=unnamed,unnamedplus
 set cursorline
 set visualbell
@@ -61,10 +69,16 @@ set splitright
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+set smartindent
+set smarttab
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugin overrides
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='base16'
+
 " better whitespace
 let g:strip_whitespace_on_save = 1
 
@@ -103,9 +117,5 @@ nnoremap <C-p> :GFiles<cr>
 " - majutsushi/tagbar for filestructure overview
 " - scrooloose/nerdtree for filetree
 " - mhinz/vim-signify for git gutter (compare against gitgutter)
-
-" ui
-" - rakr/vim-one for colorscheme
-" - vim-airline for statusbar
 
 " compare against spacevim
