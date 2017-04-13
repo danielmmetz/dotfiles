@@ -24,9 +24,12 @@ network-manager-applet
 pa-applet
 pcmanfm
 playerctl
+python2-neovim
+python-neovim
 ranger
 redshift
 ripgrep
+ruby-neovim
 rxvt-unicode
 rxvt-unicode-terminfo
 skype
@@ -63,6 +66,17 @@ sh ./installer.sh ~/.vim/dein
 Inside vim:
 ```
 :call dein#install()
+```
+
+## Neovim Setup
+```
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+### Install plugins
+Inside vim:
+```
+PlugUpdate | PlugUpgrade
 ```
 
 # TODO
