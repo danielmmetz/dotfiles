@@ -9,6 +9,7 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 
 " code navigation
 Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' }
@@ -53,9 +54,7 @@ augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance / behavior
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set termguicolors
-colorscheme one
-set background=dark
+colorscheme onedark
 
 set clipboard^=unnamed,unnamedplus
 set cursorline
@@ -79,7 +78,7 @@ set smarttab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16'
+let g:airline_theme='onedark'
 
 " better whitespace
 let g:strip_whitespace_on_save = 1
