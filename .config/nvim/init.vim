@@ -57,6 +57,8 @@ augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance / behavior
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-l> <silent>
+
 colorscheme onedark
 
 set clipboard^=unnamed,unnamedplus
@@ -91,12 +93,24 @@ let g:strip_whitespace_on_save = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 
+" sneak
+" let g:sneak#label = 1
+
+" tagbar
+let g:tagbar_left = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc key maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap Y y$
 nnoremap B ^
 nnoremap E $
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ale
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy align
@@ -112,15 +126,11 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <C-p> :GFiles<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <silent> <C-t> :TagbarToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODOs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" coding experience
-" - neomake/neomake for linting
-" - sirver/ultisnips for snippets (with honza/vim-snippets for more snippets)
-
-" file/folders structure
-" - majutsushi/tagbar for filestructure overview
-" - scrooloose/nerdtree for filetree
-" - mhinz/vim-signify for git gutter (compare against gitgutter)
-
-" compare against spacevim
+" mhinz/vim-grepper for better grepping
