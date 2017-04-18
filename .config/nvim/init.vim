@@ -5,19 +5,21 @@ let g:plug_window = 'enew'
 
 call plug#begin()
 
-" ui enhancements
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-one'
+" theming
 Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline'
 
 " code navigation
 Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-sneak'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 
-" completion & linting
+" editor ui
+Plug 'mhinz/vim-signify'
 Plug 'Shougo/deoplete.nvim',         { 'do': ':UpdateRemotePlugins' }
+Plug 'w0rp/ale'
 
 " vim enhancements
 Plug 'tpope/vim-commentary'
@@ -29,12 +31,12 @@ Plug 'tpope/vim-unimpaired'
 
 " editing enhancements
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/vim-easy-align'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'peterrincker/vim-argumentative'
 Plug 'raimondi/delimitMate'
 Plug 'wellle/targets.vim'
-Plug 'itchyny/vim-cursorword'
 
 " language specific
 Plug 'fatih/vim-go',                 { 'for': 'go' }
@@ -68,11 +70,12 @@ set relativenumber
 set splitbelow
 set splitright
 
+set expandtab
 set shiftwidth=4
-set tabstop=4
 set softtabstop=4
 set smartindent
 set smarttab
+set tabstop=4
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugin overrides
