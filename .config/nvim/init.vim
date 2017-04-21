@@ -20,6 +20,7 @@ Plug 'Shougo/deoplete.nvim',         { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 
 " vim enhancements
+Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -113,6 +114,11 @@ nnoremap E $
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" bufkill
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-c> :BD<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy align
