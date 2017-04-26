@@ -158,7 +158,7 @@ bar {
         tray_output primary
         colors {
             background #1A1A1A
-        } 
+        }
 }
 
 # audio controls
