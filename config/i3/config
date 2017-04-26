@@ -180,7 +180,7 @@ bindsym $mod+b exec google-chrome-stable
 exec compton -CGb --backend glx --vsync opengl-swc
 
 # set wallpaper
-exec --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper/wallpaper-grey.jpg --bg-fill $HOME/Pictures/wallpaper/wallpaper-grey.jpg
+exec --no-startup-id feh --bg-fill $HOME/.local/share/feh/wallpaper-grey.jpg --bg-fill $HOME/.local/share/feh/wallpaper-grey.jpg
 
 # start conky
 exec --no-startup-id conky --config=$HOME/.config/conky/conkytodo.conf
