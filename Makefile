@@ -3,7 +3,7 @@ help:
 
 all: config data
 
-config: conky fish i3 i3blocks nvim sublime
+config: conky fish i3 i3blocks nvim sublime tmux xresources
 
 data: feh i3blocksdata
 
@@ -26,6 +26,12 @@ nvim:
 
 sublime:
 	ln -s ./config/sublime-text-3/Packages/User/Preferences.sublime-settings $(HOME)/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+
+tmux:
+	ln -s ./config/tmux/tmux.conf $(HOME)/.tmux.conf
+
+xresources:
+	ln -s ./config/Xresources/Xresources $(HOME)/.Xresources
 
 feh:
 	ln -s ./local/share/feh/wallpaper-grey.jpg $(HOME)/.local/share/feh/wallpaper-grey.jpg
