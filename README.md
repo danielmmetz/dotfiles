@@ -24,6 +24,7 @@ network-manager-applet
 pa-applet
 pcmanfm
 playerctl
+powerline-fonts
 python2-neovim
 python-neovim
 ranger
