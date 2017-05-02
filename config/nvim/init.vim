@@ -87,6 +87,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 let g:airline_theme='onedark'
 
+" ale
+let g:ale_python_flake8_options = '--max-line-length 120'
+
 " better whitespace
 let g:strip_whitespace_on_save = 1
 
