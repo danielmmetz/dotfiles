@@ -14,6 +14,7 @@ conky:
 fish:
 	ln -sf $(HOME)/src/dotfiles/config/fish/config.fish $(HOME)/.config/fish/config.fish
 	ln -sf $(HOME)/src/dotfiles/config/fish/functions/clearhosts.fish $(HOME)/.config/fish/functions/clearhosts.fish
+	ln -sf $(HOME)/src/dotfiles/config/fish/functions/clearswaps.fish $(HOME)/.config/fish/functions/clearswaps.fish
 
 i3:
 	ln -sf $(HOME)/src/dotfiles/config/i3/config $(HOME)/.config/i3/config
