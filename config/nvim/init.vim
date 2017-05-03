@@ -38,10 +38,11 @@ Plug 'raimondi/delimitMate'
 Plug 'wellle/targets.vim'
 
 " language specific
+Plug 'zchee/deoplete-go',            { 'do': 'make' }
 Plug 'fatih/vim-go',                 { 'for': 'go' }
+Plug 'davidhalter/jedi-vim',         { 'for': 'python' }
 Plug 'fisadev/vim-isort',            { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'zchee/deoplete-go',            { 'do': 'make' }
 Plug 'zchee/deoplete-jedi',          { 'for': 'python' }
 
 call plug#end()
