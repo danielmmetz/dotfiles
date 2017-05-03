@@ -65,6 +65,7 @@ colorscheme onedark
 set clipboard^=unnamed,unnamedplus
 set cursorline
 set visualbell
+set mouse=a
 set inccommand=nosplit
 
 set nowrap
