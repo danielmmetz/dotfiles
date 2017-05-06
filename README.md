@@ -20,6 +20,7 @@ i3
 i3blocks
 lxappearance
 mpv
+neovim-git
 network-manager-applet
 pa-applet
 pcmanfm
@@ -44,7 +45,6 @@ ttf-ubuntu-font-family
 unrar
 urxvt-resize-font-git
 urxvt-vtwheel
-vim
 zathura
 zathura-pdf-mupdf
 ```
