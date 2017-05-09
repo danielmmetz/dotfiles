@@ -44,6 +44,7 @@ Plug 'davidhalter/jedi-vim',         { 'for': 'python' }
 Plug 'fisadev/vim-isort',            { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi',          { 'for': 'python' }
+Plug 'keith/swift.vim',              { 'for': 'swift' }
 
 call plug#end()
 
