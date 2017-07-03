@@ -1,4 +1,23 @@
-# dotfiles
+# Dotfiles
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [OS Agnostic](#os-agnostic)
+  - [Fish Shell Plugins](#fish-shell-plugins)
+  - [Neovim Set-up](#neovim-set-up)
+    - [Install vim-plug](#install-vim-plug)
+    - [Install Plugins](#install-plugins)
+- [Arch Set-up](#arch-set-up)
+  - [Package List](#package-list)
+  - [Monitor Set-up](#monitor-set-up)
+  - [Natural Scrolling](#natural-scrolling)
+- [MacOS Set-up](#macos-set-up)
+  - [Brew Packages](#brew-packages)
+- [TODO](#todo)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## OS Agnostic
 ### Fish Shell Plugins
