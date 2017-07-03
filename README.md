@@ -21,6 +21,7 @@ i3
 i3blocks
 lxappearance
 mpv
+ncdu
 neovim-git
 network-manager-applet
 pa-applet
@@ -35,11 +36,8 @@ ripgrep
 ruby-neovim
 rxvt-unicode
 rxvt-unicode-terminfo
-skype
-slack-desktop
 smplayer
 spotify
-sublime-text-dev
 transmission-cli
 ttf-font-awesome
 ttf-ubuntu-font-family
@@ -60,7 +58,7 @@ xrandr --output DP-0 --primary --mode 1920x1200 --pos 0x0 --output HDMI-0 --mode
 
 ## Fish Shell Plugins
 ```
-fisher install done omf/fasd fzf simnalamburt/shellder
+fisher install gitignore omf/fasd fzf simnalamburt/shellder
 set -U FZF_LEGACY_KEYBINDINGS 0
 ```
 
