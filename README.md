@@ -1,6 +1,26 @@
 # dotfiles
 
-## Arch Packages
+## OS Agnostic
+### Fish Shell Plugins
+```
+fisher install gitignore omf/fasd fzf simnalamburt/shellder
+set -U FZF_LEGACY_KEYBINDINGS 0
+```
+
+### Neovim Set-up
+#### Install vim-plug
+```
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+#### Install Plugins
+Inside neovim:
+```
+:PlugInstall | PlugUpgrade
+```
+
+## Arch Set-up
+### Package List
 ```
 pacaur
 adobe-source-code-pro-fonts
@@ -48,34 +68,25 @@ zathura
 zathura-pdf-mupdf
 ```
 
-## Monitor Set-up
+### Monitor Set-up
 Add the following line at the top of your `~/.xinitrc` file.
 ```
 xrandr --output DP-0 --primary --mode 1920x1200 --pos 0x0 --output HDMI-0 --mode 1920x1200 --pos 1920x0
 ```
 
-## Brew Packages
-
-## Fish Shell Plugins
+### Natural Scrolling
+Add the following line to the "pointer" block inside of `/usr/share/X11/xorg.conf.d/40-libinput.conf`:
 ```
-fisher install gitignore omf/fasd fzf simnalamburt/shellder
-set -U FZF_LEGACY_KEYBINDINGS 0
+    Option "NaturalScrolling" "true"
 ```
 
-## Neovim Set-up
-### Install vim-plug
+## MacOS Set-up
+### Brew Packages
 ```
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-### Install plugins
-Inside vim:
-```
-:PlugInstall | PlugUpgrade
 ```
 
-# TODO
-  - [ ] write script to auto-symlink all configs
+
+## TODO
   - [ ] add brew packages
   - [ ] add transmission writeup
 
