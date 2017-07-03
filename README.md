@@ -50,6 +50,12 @@ zathura
 zathura-pdf-mupdf
 ```
 
+## Monitor Set-up
+Add the following line at the top of your `~/.xinitrc` file.
+```
+xrandr --output DP-0 --primary --mode 1920x1200 --pos 0x0 --output HDMI-0 --mode 1920x1200 --pos 1920x0
+```
+
 ## Brew Packages
 
 ## Fish Shell Plugins

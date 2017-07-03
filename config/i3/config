@@ -176,6 +176,9 @@ bindsym $mod+Control+l exec i3lock -c 000000
 # browser launch
 bindsym $mod+b exec google-chrome-stable
 
+# monitor setup
+exec --no-startup-id xrandr --output DP-0 --primary --mode 1920x1200 --pos 0x0 --output HDMI-0 --mode 1920x1200 --pos 1920x0
+
 # anti tearing
 exec compton -CGb --backend glx --vsync opengl-swc
 
