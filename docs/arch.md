@@ -21,6 +21,8 @@ arc-gtk-theme
 arc-icon-theme
 base16-git
 cheat-git
+compton
+conky
 ctags
 dropbox
 fasd
