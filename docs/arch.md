@@ -69,7 +69,7 @@ xrandr --output DP-0 --primary --mode 1920x1200 --pos 0x0 --output HDMI-0 --mode
 ## Natural Scrolling
 Add the following line to the "pointer" block inside of `/usr/share/X11/xorg.conf.d/40-libinput.conf`:
 ```
-    Option "NaturalScrolling" "true"
+Option "NaturalScrolling" "true"
 ```
 
 ## Mount Points
@@ -79,13 +79,39 @@ UUID=0edcd222-d30a-4c0c-98a9-316232fe450b /media         ext4    defaults,noatim
 ```
 
 ## Transmission Daemon Set-up
+### Enable the daemon at start-up
 Enable the transmission daemon. When complete, verify success by visiting `localhost:9091/transmission/web/`.
 ```
 systemctl enable transmission
 systemctl start transmission
 ```
 
-Tweak the following lines in `/var/lib/transmission/.config/transmission-daemon/settings.json`:
+### Settings
+The daemon overrwites settings at close. To manually overwrite the settings, we need to stop it first.
+```
+systemctl stop transmission
 ```
 
+Tweak the following lines in `/var/lib/transmission/.config/transmission-daemon/settings.json`:
+```
+"alt-speed-down": 750,
+"alt-speed-up": 200,
+"dht-enabled": false,
+"download-dir": "/media/seed",
+"peer-port-random-on-start": true,
+"pex-enabled": false,
+"trash-original-torrent-files": true,
+"watch-dir": "/home/daniel/Downloads/",
+"watch-dir-enabled": true
+```
+
+When done, start the daemon again.
+```
+systemctl start transmission
+```
+
+Give read permissions to the user `transmission` to watch the downloads folder.
+```
+setfacl -m g:transmission:x ~
+setfacl -m g:transmission:wrx ~/Downloads
 ```
