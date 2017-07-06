@@ -50,3 +50,4 @@ feh:
 i3blocksdata:
 	mkdir -p $(HOME)/.local/share/i3blocks
 	ln -sf $(HOME)/go/src/github.com/danielmmetz/dotfiles/local/share/i3blocks/bw $(HOME)/.local/share/i3blocks/bw
+	ln -sf $(HOME)/go/src/github.com/danielmmetz/dotfiles/local/share/i3blocks/playerctl $(HOME)/.local/share/i3blocks/playerctl

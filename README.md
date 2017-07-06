@@ -46,4 +46,3 @@ See [Arch Set-up](https://www.github.com/danielmmetz/dotfiles/blob/master/docs/a
 
 ## TODO
   - [ ] add brew packages
-
