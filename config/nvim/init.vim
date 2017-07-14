@@ -32,10 +32,10 @@ Plug 'tpope/vim-unimpaired'
 " editing enhancements
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'itchyny/vim-cursorword'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'peterrincker/vim-argumentative'
-Plug 'raimondi/delimitMate'
 Plug 'wellle/targets.vim'
 
 " language specific
