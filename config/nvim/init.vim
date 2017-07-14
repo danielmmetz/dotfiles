@@ -20,6 +20,7 @@ Plug 'Shougo/deoplete.nvim',         { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 
 " vim enhancements
+Plug 'chrisbra/SudoEdit.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
