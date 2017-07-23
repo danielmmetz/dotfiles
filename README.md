@@ -41,8 +41,30 @@ See [Arch Set-up](https://www.github.com/danielmmetz/dotfiles/blob/master/docs/a
 ## MacOS Set-up
 ### Brew Packages
 ```
+bash
+cheat
+ctags
+fasd
+fish
+fisherman
+fzf
+git
+go
+htophub
+ical-buddy
+ncdu
+neovim
+openssl
+python
+python3
+ranger
+rename
+ripgrep
+ruby
+the_silver_searcher
+tmux
+tree
+vim
+wget
+zsh
 ```
-
-
-## TODO
-  - [ ] add brew packages
