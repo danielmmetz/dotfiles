@@ -10,7 +10,6 @@ Plug 'joshdick/onedark.vim'
 " code navigation
 Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-sneak'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
