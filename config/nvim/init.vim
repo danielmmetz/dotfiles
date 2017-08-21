@@ -4,8 +4,8 @@
 call plug#begin()
 
 " theming
+Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
-Plug 'vim-airline/vim-airline'
 
 " code navigation
 Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' }
@@ -87,11 +87,6 @@ set tabstop=4
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugin overrides
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts=1
-let g:airline_theme='onedark'
-
 " ale
 let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_linters = {
@@ -101,12 +96,12 @@ let g:ale_linters = {
 " better whitespace
 let g:strip_whitespace_on_save = 1
 
+" lightline
+let g:lightline = {'colorscheme': 'one'}
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-
-" sneak
-" let g:sneak#label = 1
 
 " tagbar
 let g:tagbar_left = 1
