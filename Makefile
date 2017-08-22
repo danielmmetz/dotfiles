@@ -19,6 +19,9 @@ fish:
 	ln -sf $(HOME)/go/src/github.com/danielmmetz/dotfiles/config/fish/functions/clearswaps.fish $(HOME)/.config/fish/functions/clearswaps.fish
 	ln -sf $(HOME)/go/src/github.com/danielmmetz/dotfiles/config/fish/functions/unrartv.fish $(HOME)/.config/fish/functions/unrartv.fish
 
+git:
+	ln -sf $(HOME)/go/src/github.com/danielmmetz/dotfiles/config/git/gitconfig $(HOME)/.gitconfig
+
 i3:
 	mkdir -p $(HOME)/.config/i3
 	ln -sf $(HOME)/go/src/github.com/danielmmetz/dotfiles/config/i3/config $(HOME)/.config/i3/config
