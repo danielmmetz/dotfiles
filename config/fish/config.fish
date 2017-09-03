@@ -1,5 +1,6 @@
 set GOPATH $HOME/go
-set WORKSPACE $HOME/go/src/github.com/lyft
+set WORKSPACE $GOPATH/src/github.com/lyft
+set PATH $PATH $GOPATH/bin
 
 alias vi nvim
 alias vim nvim
