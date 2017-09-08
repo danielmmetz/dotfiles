@@ -105,8 +105,10 @@ let g:ale_linters = {
 let g:strip_whitespace_on_save = 1
 
 " deoplete
+let g:jedi#completions_enabled = 0
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+let g:deoplete#sources#jedi#server_timeout = 2
 
 " tagbar
 let g:tagbar_left = 1
