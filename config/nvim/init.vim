@@ -13,7 +13,6 @@ Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' 
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
-Plug 'rbgrouleff/bclose.vim'
 
 " editor ui
 Plug 'mhinz/vim-signify'
@@ -22,7 +21,7 @@ Plug 'w0rp/ale'
 
 " vim enhancements
 Plug 'chrisbra/SudoEdit.vim'
-Plug 'qpkorr/vim-bufkill'
+Plug 'mhinz/vim-sayonara/'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -132,11 +131,6 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" bufkill
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-c> :BD<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy align
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -155,6 +149,6 @@ nnoremap <C-p> :GFiles<cr>
 nmap <silent> <C-t> :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TODOs
+" sayonara
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" mhinz/vim-grepper for better grepping
+map <C-c> :Sayonara!<cr>
