@@ -5,7 +5,10 @@ all: data config
 
 data: feh i3blocksdata
 
-config: conky fish i3 i3blocks nvim sublime tmux xresources
+config: ctags conky fish i3 i3blocks nvim sublime tmux xresources
+
+ctags:
+	ln -sf $(DOTFILES)/config/ctags/ctags $(HOME)/.ctags
 
 
 conky:
