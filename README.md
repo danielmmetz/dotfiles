@@ -55,7 +55,8 @@ ical-buddy
 ncdu
 neovim
 openssl
-python
+pipenv
+python2
 python3
 ranger
 rename
