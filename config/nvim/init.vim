@@ -97,7 +97,7 @@ let g:airline_theme='onedark'
 " ale
 let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_linters = {
-\   'python': ['autopep8', 'flake8', 'isort', 'pylint', 'yapf'],
+\   'python': ['autopep8', 'flake8', 'isort', 'yapf'],
 \}
 
 " better whitespace
