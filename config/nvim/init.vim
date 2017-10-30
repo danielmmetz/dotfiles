@@ -42,7 +42,6 @@ Plug 'wellle/targets.vim'
 Plug 'zchee/deoplete-go',            { 'do': 'make' }
 Plug 'fatih/vim-go',                 { 'for': 'go' }
 Plug 'davidhalter/jedi-vim',         { 'for': 'python' }
-Plug 'fisadev/vim-isort',            { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi',          { 'for': 'python' }
 Plug 'keith/swift.vim',              { 'for': 'swift' }
@@ -99,6 +98,10 @@ let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_linters = {
 \   'python': ['autopep8', 'flake8', 'isort', 'yapf'],
 \}
+let g:ale_fixers = {
+\   'python': ['isort'],
+\}
+let g:ale_fix_on_save = 1
 
 " better whitespace
 let g:strip_whitespace_on_save = 1
