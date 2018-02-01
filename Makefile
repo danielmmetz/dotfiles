@@ -53,7 +53,7 @@ xresources:
 
 feh:
 	mkdir -p $(HOME)/.local/share/feh
-	ln -sf $(DOTFILES)/local/share/feh/wallpaper-grey.jpg $(HOME)/.local/share/feh/wallpaper-grey.jpg
+	ln -f $(DOTFILES)/local/share/feh/wallpaper-grey.jpg $(HOME)/.local/share/feh/wallpaper-grey.jpg
 
 i3blocksdata:
 	mkdir -p $(HOME)/.local/share/i3blocks
