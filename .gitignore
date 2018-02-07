@@ -249,3 +249,6 @@ Session.vim
 # auto-generated tag files
 
 # End of https://www.gitignore.io/api/go,git,vim,tags,macos,python,jetbrains
+
+Pipfile
+Pipfile.lock
