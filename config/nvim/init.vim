@@ -71,7 +71,6 @@ set inccommand=nosplit
 
 set nowrap
 set number
-set relativenumber
 set splitbelow
 set splitright
 set textwidth=120
@@ -100,8 +99,8 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'python': ['isort'],
+\   'go': ['goimports'],
 \}
-let g:ale_fix_on_save = 1
 
 " better whitespace
 let g:strip_whitespace_on_save = 1
@@ -132,6 +131,7 @@ tnoremap <Esc> <C-\><C-n>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-s> :ALEFix<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy align
