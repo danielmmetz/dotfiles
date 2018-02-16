@@ -5,5 +5,5 @@
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --date=short --abbrev-commit
 [core]
 	editor = nvim
-	excludesfile = /Users/danielmetz/.gitignore
+	excludesfile = ~/.gitignore
 
