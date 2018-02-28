@@ -123,6 +123,7 @@ let g:plug_window = 'enew'
 nnoremap Y y$
 nnoremap B ^
 nnoremap E $
+nnoremap <C-n> :noh<CR>
 
 tnoremap <Esc> <C-\><C-n>
 
