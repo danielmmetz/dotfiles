@@ -74,7 +74,6 @@ set nowrap
 set number
 set splitbelow
 set splitright
-set textwidth=120
 
 set expandtab
 set shiftwidth=4
