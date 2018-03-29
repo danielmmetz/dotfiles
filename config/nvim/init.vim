@@ -15,8 +15,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
 " editor ui
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'mhinz/vim-signify'
-Plug 'Shougo/deoplete.nvim',         { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/nvim-completion-manager'
 Plug 'w0rp/ale'
 
 " vim enhancements
@@ -39,11 +40,8 @@ Plug 'peterrincker/vim-argumentative'
 Plug 'wellle/targets.vim'
 
 " language specific
-Plug 'zchee/deoplete-go',            { 'do': 'make' }
 Plug 'fatih/vim-go',                 { 'for': 'go' }
-Plug 'davidhalter/jedi-vim',         { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'zchee/deoplete-jedi',          { 'for': 'python' }
 Plug 'saltstack/salt-vim',           { 'for': 'sls' }
 Plug 'keith/swift.vim',              { 'for': 'swift' }
 
@@ -82,6 +80,9 @@ set smartindent
 set smarttab
 set tabstop=4
 
+let g:python_host_prog = '/Users/dmetz/.venvs/neovim2/bin/python'
+let g:python3_host_prog = '/Users/dmetz/.venvs/neovim3/bin/python'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugin overrides
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,11 +106,9 @@ let g:ale_fixers = {
 " better whitespace
 let g:strip_whitespace_on_save = 1
 
-" deoplete
-let g:jedi#completions_enabled = 0
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#sources#jedi#server_timeout = 2
+" language client
+let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_serverCommands = { 'python': ['get-pyls'] }
 
 " tagbar
 let g:tagbar_left = 1
@@ -146,6 +145,14 @@ nmap ga <Plug>(EasyAlign)
 " fzf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-p> :GFiles<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-completion-manager
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>d :call LanguageClient_textDocument_definition()<Cr>
+nnoremap <silent> <leader>n :call LanguageClient_textDocument_references()<CR>
+nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar

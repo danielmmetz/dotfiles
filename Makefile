@@ -3,9 +3,13 @@ help:
 
 all: data config
 
-data: feh i3blocksdata
+data: bin feh i3blocksdata
 
 config: ctags conky fish i3 i3blocks nvim sublime tmux xresources
+
+bin:
+	chmod +x $(DOTFILES)/local/bin/get-pyls
+	ln -sf $(DOTFILES)/local/bin/get-pyls /usr/local/bin/get-pyls
 
 ctags:
 	ln -sf $(DOTFILES)/config/ctags/ctags $(HOME)/.ctags
