@@ -3,6 +3,7 @@ set -x DOTFILES $GOPATH/src/github.com/danielmmetz/dotfiles
 set -x WORKSPACE $GOPATH/src/github.com/lyft
 set -x PATH $PATH $GOPATH/bin /usr/local/sbin
 set -x PIPENV_SHELL_FANCY 1
+set -x TERMINAL alacritty
 
 alias vi nvim
 alias vim nvim
