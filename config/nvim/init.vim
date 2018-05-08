@@ -42,6 +42,7 @@ Plug 'wellle/targets.vim'
 " language specific
 Plug 'fatih/vim-go',                 { 'for': 'go' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'ambv/black',                   { 'for': 'python' }
 Plug 'saltstack/salt-vim',           { 'for': 'sls' }
 Plug 'keith/swift.vim',              { 'for': 'swift' }
 
@@ -87,21 +88,26 @@ let g:python3_host_prog = '/Users/dmetz/.venvs/neovim3/bin/python'
 " plugin overrides
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
+let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#virtualenv#enabled = 0
 let g:airline_powerline_fonts=1
 let g:airline_theme='onedark'
 
 " ale
 let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_linters = {
-\   'python': ['autopep8', 'flake8', 'isort', 'yapf'],
+\   'python': ['autopep8', 'black', 'flake8', 'isort', 'yapf'],
 \}
 let g:ale_fixers = {
-\   'python': ['isort'],
+\   'python': ['black', 'isort'],
 \   'go': ['goimports'],
 \}
+
+" black
+let g:black_linelength = 120
 
 " better whitespace
 let g:strip_whitespace_on_save = 1
