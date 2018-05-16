@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -e
+
+HOME_DIR=$HOME
+STATES_DIR="$(pwd)/states"
+USERNAME=$(whoami)
+
+USE_SUDO=''
+if [[ $(whoami) != 'root' ]]; then
+    USE_SUDO='sudo '
+fi
+
+if [[ $(uname) == 'Darwin' ]]; then
+    if [[ ! $(command -v brew) ]]; then
+        echo 'Homebrew not found. Installing...'
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    if [[ ! $(command -v salt-call) ]]; then
+        echo 'SaltStack not found. Installing...'
+        brew install saltstack
+    fi
+else
+    if [[ ! $(command -v salt-call) ]]; then
+        echo "Bootstrap script unsupported for $(uname)."
+        echo 'Please manually install SaltStack with your system package manager, then try again.'
+        echo "Aborting..."
+        exit 1
+    fi
+fi
+
+command="$1"
+if [[ -n "$command" ]]; then
+    shift
+else
+    command=state.highstate
+fi
+
+$USE_SUDO salt-call --config=./ grains.setvals "{ \"home\": \"$HOME_DIR\", \"user\": \"$USERNAME\", \"states_dir\": \"$STATES_DIR\" }"
+$USE_SUDO salt-call --config=./ --retcode-passthrough "$command" "$@"
