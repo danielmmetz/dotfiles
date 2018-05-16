@@ -108,6 +108,7 @@ let g:ale_fixers = {
 
 " black
 let g:black_linelength = 120
+let g:black_virtualenv = '/Users/dmetz/.venvs/neovim3'
 
 " better whitespace
 let g:strip_whitespace_on_save = 1
