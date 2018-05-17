@@ -2,6 +2,8 @@
 set -e
 
 HOME_DIR=$HOME
+PYTHON2=$(which python2)
+PYTHON3=$(which python3)
 STATES_DIR="$(pwd)/states"
 USERNAME=$(whoami)
 
@@ -36,5 +38,11 @@ else
     command=state.highstate
 fi
 
-$USE_SUDO salt-call --config=./ grains.setvals "{ \"home\": \"$HOME_DIR\", \"user\": \"$USERNAME\", \"states_dir\": \"$STATES_DIR\" }"
+$USE_SUDO salt-call --config=./ grains.setvals "{\
+    \"home\": \"$HOME_DIR\", \
+    \"python2\": \"$PYTHON2\", \
+    \"python3\": \"$PYTHON3\", \
+    \"states_dir\": \"$STATES_DIR\", \
+    \"user\": \"$USERNAME\" \
+}"
 $USE_SUDO salt-call --config=./ --retcode-passthrough "$command" "$@"
