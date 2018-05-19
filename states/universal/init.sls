@@ -1,3 +1,4 @@
 include:
     - .ctags
+    - .git
     - .neovim
