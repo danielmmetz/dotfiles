@@ -3,33 +3,14 @@ help:
 
 all: data config
 
-data: bin feh i3blocksdata
+data: feh i3blocksdata
 
-config: ctags conky fish i3 i3blocks nvim sublime tmux xresources
-
-bin:
-	chmod +x $(DOTFILES)/local/bin/get-pyls
-	ln -sf $(DOTFILES)/local/bin/get-pyls /usr/local/bin/get-pyls
-
-ctags:
-	ln -sf $(DOTFILES)/config/ctags/ctags $(HOME)/.ctags
-
+config: conky i3 i3blocks sublime tmux xresources
 
 conky:
 	mkdir -p $(HOME)/.config/conky
 	ln -sf $(DOTFILES)/config/conky/conkycal.conf $(HOME)/.config/conky/conkycal.conf
 	ln -sf $(DOTFILES)/config/conky/conkytodo.conf $(HOME)/.config/conky/conkytodo.conf
-
-fish:
-	mkdir -p $(HOME)/.config/fish
-	ln -sf $(DOTFILES)/config/fish/config.fish $(HOME)/.config/fish/config.fish
-	ln -sf $(DOTFILES)/config/fish/functions/clearhosts.fish $(HOME)/.config/fish/functions/clearhosts.fish
-	ln -sf $(DOTFILES)/config/fish/functions/clearswaps.fish $(HOME)/.config/fish/functions/clearswaps.fish
-	ln -sf $(DOTFILES)/config/fish/functions/unrartv.fish $(HOME)/.config/fish/functions/unrartv.fish
-
-git:
-	ln -sf $(DOTFILES)/config/git/gitconfig $(HOME)/.gitconfig
-	ln -sf $(DOTFILES)/.gitignore $(HOME)/.gitignore
 
 i3:
 	mkdir -p $(HOME)/.config/i3
@@ -38,10 +19,6 @@ i3:
 i3blocks:
 	mkdir -p $(HOME)/.config/i3blocks
 	ln -sf $(DOTFILES)/config/i3blocks/i3blocks.conf $(HOME)/.config/i3blocks/i3blocks.conf
-
-nvim:
-	mkdir -p $(HOME)/.config/nvim
-	ln -sf $(DOTFILES)/config/nvim/init.vim $(HOME)/.config/nvim/init.vim
 
 sublime:
 	mkdir -p $(HOME)/.config/sublime-text-3/Packages/User

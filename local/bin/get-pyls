@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-PYTHON_VERSION=$(python --version 2>&1 | awk '{print $2}' | head -c 1)
-
-if [[ $PYTHON_VERSION == 2 ]]; then
-  ~/.venvs/neovim2/bin/pyls
-else
-  ~/.venvs/neovim3/bin/pyls
-fi
