@@ -16,3 +16,9 @@ end
 alias vim vi
 alias vimrc "vi $HOME/.config/nvim/init.vim"
 set fish_greeting ""
+
+set -x WORKSPACE $GOPATH/src/github.com/lyft
+alias sync $WORKSPACE/hacktools/sync-to-onebox-v3.sh
+if test -e $WORKSPACE/blessclient/lyftprofile
+    bass source $WORKSPACE/blessclient/lyftprofile
+end
