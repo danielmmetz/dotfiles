@@ -1,2 +1,3 @@
 include:
+    - .feh
     - .i3
