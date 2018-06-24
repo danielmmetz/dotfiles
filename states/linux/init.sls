@@ -4,4 +4,5 @@ include:
     - .i3
     - .libinput
     - .packages
+    - .transmission
     - .xresources
