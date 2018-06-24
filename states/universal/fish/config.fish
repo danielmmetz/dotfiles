@@ -8,6 +8,7 @@ if test -e $HOME/.credentials
     bass source $HOME/.credentials
 end
 
+alias ls exa
 alias vi nvim
 alias vim nvim
 alias vimrc "nvim $HOME/.config/nvim/init.vim"

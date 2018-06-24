@@ -7,6 +7,7 @@ Ensure packages are installed:
       - conky
       - ctags
       - dropbox
+      - exa
       - fasd
       - feh
       - fish
