@@ -105,4 +105,3 @@ if [[ "$rx_rate" -gt 1048576 ]]; then
 else
   echo -n "${rx_kib}K"
 fi
-

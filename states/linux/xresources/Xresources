@@ -8,4 +8,3 @@ URxvt.cursorUnderline: 1
 URxvt.perl-ext-common: resize-font,vtwheel
 URxvt.resize-font.smaller: C-minus
 URxvt.resize-font.bigger: C-equal
-

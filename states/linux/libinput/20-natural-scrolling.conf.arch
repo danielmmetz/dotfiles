@@ -4,4 +4,3 @@ Section "InputClass"
 	MatchDevicePath "/dev/input/event*"
 	Option "NaturalScrolling" "true"
 EndSection
-

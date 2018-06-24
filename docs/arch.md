@@ -9,6 +9,8 @@
 - [Natural Scrolling](#natural-scrolling)
 - [Mount Points](#mount-points)
 - [Transmission Daemon Set-up](#transmission-daemon-set-up)
+  - [Enable the daemon at start-up](#enable-the-daemon-at-start-up)
+  - [Settings](#settings)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
