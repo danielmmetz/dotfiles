@@ -1,4 +1,4 @@
-#include "/usr/share/base16/xresources/base16-solarized-dark.Xresources"
+#include "/usr/local/share/xresources-themes/base16-solarized-dark.Xresources"
 
 URxvt.font: xft:Source Code Pro:size=10
 
