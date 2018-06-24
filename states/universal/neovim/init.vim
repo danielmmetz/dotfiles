@@ -23,6 +23,7 @@ Plug 'w0rp/ale'
 " vim enhancements
 Plug 'chrisbra/SudoEdit.vim'
 Plug 'mhinz/vim-sayonara/'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
