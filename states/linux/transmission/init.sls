@@ -4,6 +4,7 @@ Ensure transmission settings.json is symlinked:
     - target: {{ grains.states_dir }}/linux/transmission/settings.json
     - makedirs: True
     - force: True
+    - user: transmission
 
 
 Ensure transmission can access the Downloads dir:
@@ -22,8 +23,8 @@ Ensure transmission can modify contents within Downloads:
     - perms: wrx
 
 
-{% if grains['os'] in ('Arch', 'Fedora') %}
-{% set daemon_name = 'transmission' if grains['os'] == 'Arch' else 'transmission-daemon' %}
+{% if grains['os_family'] in ('Arch', 'Fedora') %}
+{% set daemon_name = 'transmission' if grains['os_family'] == 'Arch' else 'transmission-daemon' %}
 Ensure transmission service is enabled:
   service.enabled:
     - name: {{ daemon_name }}

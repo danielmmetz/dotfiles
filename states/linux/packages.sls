@@ -6,16 +6,13 @@ Ensure packages are installed:
       - compton
       - conky
       - ctags
-      - dropbox
       - exa
       - fasd
       - feh
       - fish
       - fzf
-      - google-chrome-stable
       - htop
-      - i3
-      - i3lock
+      - i3blocks
       - lxappearance
       - mpv
       - ncdu
@@ -23,29 +20,34 @@ Ensure packages are installed:
       - network-manager-applet
       - pcmanfm
       - powerline-fonts
+      - python-virtualenv
       - ranger
       - redshift
       - ripgrep
       - rxvt-unicode
       - smplayer
+      - the_silver_searcher
       - transmission-cli
       - unrar
       - zathura
       - zathura-pdf-mupdf
-    {% if grains['os'] == 'Arch' %}
+    {% if grains['os_family'] == 'Arch' %}
       - arc-gtk-theme
       - arc-icon-theme
       - pa-applet
       - playerctl
+      - python-pip
       - rxvt-unicode-terminfo
-      - spotify
       - ttf-font-awesome
       - ttf-ubuntu-font-family
-      - urxvt-resize-font-git
-      - urxvt-vtwheel
+      - yay
     {% elif grains['os'] == 'Fedora' %}
       - arc-theme
+      - dropbox
       - fontawesome-fonts
+      - google-chrome-stable
+      - i3
+      - i3lock
       - numix-gtk-theme
       - numix-icon-theme
       - ubuntu-title-fonts
