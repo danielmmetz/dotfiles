@@ -1,4 +1,5 @@
 include:
+    - .alacritty
     - .ctags
     - .fish
     - .git
