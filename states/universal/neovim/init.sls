@@ -36,13 +36,6 @@ Ensure plugins are installed and updated:
     - hide_output: True
 
 
-Ensure virtualenv is installed:
-  pip.installed:
-    - name: virtualenv
-    - user: {{ grains.user }}
-    - unless: pip freeze | grep -c virtualenv
-
-
 Ensure python2 virtualenv:
   virtualenv.managed:
     - name: {{ grains.home }}/.venvs/neovim2
