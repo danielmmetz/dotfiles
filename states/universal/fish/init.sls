@@ -53,6 +53,5 @@ Ensure fish is an allowed shell:
 
 Ensure fish is the default shell:
   cmd.run:
-    - name: chsh -s $(which fish)
-    - unless: '[[ "$SHELL" == "$(which fish)" ]]'
-    - runas: {{ grains.user }}
+    - name: chsh -s $(which fish) {{ grains.user }}
+    - unless: 'su {{ grains.user }} -c echo $SHELL | grep fish'
