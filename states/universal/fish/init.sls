@@ -1,3 +1,11 @@
+Ensure .profile is symlinked:
+  file.symlink:
+    - name: {{ grains.home }}/.profile
+    - target: {{ grains.states_dir }}/universal/fish/profile
+    - makedirs: True
+    - force: True
+    - user: {{ grains.user }}
+
 Ensure config.fish is symlinked:
   file.symlink:
     - name: {{ grains.home }}/.config/fish/config.fish
