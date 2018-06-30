@@ -41,11 +41,9 @@ Plug 'peterrincker/vim-argumentative'
 Plug 'wellle/targets.vim'
 
 " language specific
-Plug 'fatih/vim-go',                 { 'for': 'go' }
-Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'ambv/black',                   { 'for': 'python' }
 Plug 'saltstack/salt-vim',           { 'for': 'sls' }
-Plug 'keith/swift.vim',              { 'for': 'swift' }
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -99,7 +97,7 @@ let g:airline_theme='onedark'
 " ale
 let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_linters = {
-\   'python': ['autopep8', 'black', 'flake8', 'isort', 'yapf'],
+\   'python': ['autopep8', 'black', 'flake8', 'isort'],
 \}
 let g:ale_fixers = {
 \   'python': ['black', 'isort'],
