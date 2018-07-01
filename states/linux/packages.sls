@@ -38,7 +38,6 @@ Ensure packages are installed:
       - playerctl
       - python-pip
       - rxvt-unicode-terminfo
-      - ttf-font-awesome
       - ttf-ubuntu-font-family
       - yay
     {% elif grains['os'] == 'Fedora' %}
