@@ -26,11 +26,13 @@ Ensure transmission can modify contents within Downloads:
 {% if grains['os_family'] in ('Arch', 'Fedora') %}
 {% set daemon_name = 'transmission' if grains['os_family'] == 'Arch' else 'transmission-daemon' %}
 Ensure transmission service is enabled:
-  service.enabled:
-    - name: {{ daemon_name }}
+  cmd.run:
+    - name: systemctl enable {{ daemon_name }}
+    - unless: systemctl status {{ daemon_name }} | grep enabled
 
 
 Ensure transmission is running:
-  service.running:
-    - name: {{ daemon_name }}
+  cmd.run:
+    - name: systemctl start {{ daemon_name }}
+    - unless: systemctl status {{ daemon_name }} | grep running
 {% endif %}
