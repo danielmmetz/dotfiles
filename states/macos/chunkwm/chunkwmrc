@@ -1,0 +1,16 @@
+chunkc set bsp_spawn_left                0
+chunkc set focused_border_color 0xFF3EC2FF
+chunkc set focused_border_skip_floating 0
+chunkc set global_desktop_mode           bsp
+chunkc set global_desktop_offset_bottom  0
+chunkc set global_desktop_offset_gap     0
+chunkc set global_desktop_offset_left    0
+chunkc set global_desktop_offset_right   0
+chunkc set global_desktop_offset_top     0
+chunkc set mouse_resize_window alt
+
+chunkc core::hotload 1
+chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins
+chunkc core::load border.so
+chunkc core::load tiling.so
+chunkc core::load ffm.so
