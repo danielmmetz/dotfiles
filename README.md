@@ -4,6 +4,8 @@
 
 - [Dotfiles Set-up](#dotfiles-set-up)
   - [AUR packages](#aur-packages)
+  - [TODOs](#todos)
+  - [Lyft TODOs](#lyft-todos)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -17,3 +19,17 @@ Please run the following:
 ```sh
 yay -Syu alacritty-git arc-gtk-theme arc-icon-theme google-chrome i3lock-fancy-git python-pre-commit sonarr spotify steam ttf-emojione
 ```
+
+
+### TODOs
+[ ] xautolock -time 10 -locker blurlock
+[ ] xrandr in i3config again
+    - or persist in another way
+[ ] battery in i3status
+[ ] .credentials (GitHub)
+
+### Lyft TODOs
+[ ] vpn
+[ ] devbox and such
+[ ] bluetooth
+[ ] multi-monitor

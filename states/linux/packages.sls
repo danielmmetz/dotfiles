@@ -68,6 +68,7 @@ Ensure packages are installed:
     {% if grains['os_family'] == 'Arch' %}
       - arc-gtk-theme
       - arc-icon-theme
+      - geoclue2
       - pa-applet
       - playerctl
       - python-pip

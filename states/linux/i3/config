@@ -146,11 +146,11 @@ bindsym $mod+Control+l exec i3lock -c 000000
 # browser launch
 bindsym $mod+b exec chromium
 
-exec --no-startup-id xrandr --output DP-0 --primary --auto --left-of HDMI-0
+# exec --no-startup-id xrandr --output DP-0 --primary --auto --left-of HDMI-0
 exec --no-startup-id compton -CGb --backend glx --vsync opengl-swc
 exec --no-startup-id feh --bg-fill $HOME/.local/share/feh/wallpaper-grey.jpg --bg-fill $HOME/.local/share/feh/wallpaper-grey.jpg
 
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id pa-applet
-exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift -l 37.7739:-122.4312
 exec --no-startup-id nm-applet
