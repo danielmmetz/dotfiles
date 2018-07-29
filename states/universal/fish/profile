@@ -1,3 +1,3 @@
-export TERMINAL=alacritty
+export TERMINAL=kitty
 export VISUAL=nvim
 export EDITOR=nvim

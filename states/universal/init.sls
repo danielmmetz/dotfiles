@@ -3,4 +3,5 @@ include:
     - .ctags
     - .fish
     - .git
+    - .kitty
     - .neovim
