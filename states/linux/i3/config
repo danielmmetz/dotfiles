@@ -141,7 +141,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # lock controls
-bindsym $mod+Control+l exec i3lock-fancy
+bindsym $mod+Control+l exec i3lock -c 000000
 
 # browser launch
 bindsym $mod+b exec google-chrome-stable
