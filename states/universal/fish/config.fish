@@ -7,8 +7,12 @@ if test -e $HOME/.credentials
     bass source $HOME/.credentials
 end
 
-alias ls exa
-alias vi nvim
-alias vim nvim
-alias vimrc "nvim $HOME/.config/nvim/init.vim"
+if type -q exa
+    alias ls exa
+end
+if type -q nvim
+    alias vi nvim
+end
+alias vim vi
+alias vimrc "vi $HOME/.config/nvim/init.vim"
 set fish_greeting ""
