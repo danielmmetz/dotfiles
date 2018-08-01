@@ -30,10 +30,10 @@ Ensure get-pyls is symlinked:
     - user: {{ grains.user }}
 
 
-Ensure plugins are installed and updated:
-  cmd.run:
-    - name: nvim +PlugUpgrade +PlugUpdate +PlugClean! +qall
-    - hide_output: True
+Ensure virtualenv is installed:
+  pkg.installed:
+    - name: python-virtualenv
+    - allow_updates: True
 
 
 Ensure python2 virtualenv:
@@ -56,4 +56,11 @@ Ensure python3 virtualenv:
       - neovim
       - python-language-server[all]
     - pip_upgrade: True
+    - user: {{ grains.user }}
+
+
+Ensure plugins are installed and updated:
+  cmd.run:
+    - name: nvim +PlugUpgrade +PlugUpdate +PlugClean! +qall
+    - hide_output: True
     - user: {{ grains.user }}
