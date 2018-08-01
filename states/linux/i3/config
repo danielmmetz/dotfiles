@@ -144,7 +144,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Control+l exec i3lock -c 000000
 
 # browser launch
-bindsym $mod+b exec chromium-browser
+bindsym $mod+b exec chromium
 
 exec --no-startup-id xrandr --output DP-0 --primary --auto --left-of HDMI-0
 exec --no-startup-id compton -CGb --backend glx --vsync opengl-swc
