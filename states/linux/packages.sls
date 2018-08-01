@@ -13,6 +13,14 @@ Ensure RPMFusion Nonfree repo:
     - mirrorlist: http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-$releasever&arch=$basearch
 
 
+{% set copr_repos = ['oleastre/kitty-terminal', 'wyvie/i3blocks'] %}
+{% for repo in copr_repos %}
+Ensure COPR repo {{repo}}:
+  cmd.run:
+    - name: dnf copr enable {{ repo }} -y
+{% endfor %}
+
+
 Ensure repolist permissions:
   file.directory:
     - name: /etc/yum.repos.d
@@ -28,6 +36,7 @@ Ensure packages are installed:
     - pkgs:
       - adobe-source-code-pro-fonts
       - arandr
+      - chromium
       - compton
       - conky
       - ctags
@@ -72,6 +81,7 @@ Ensure packages are installed:
       - google-chrome-stable
       - i3
       - i3lock
+      - kitty
       - numix-gtk-theme
       - numix-icon-theme
       - ubuntu-title-fonts
