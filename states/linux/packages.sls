@@ -56,7 +56,7 @@ Ensure packages are installed:
       - powerline-fonts
       - python-virtualenv
       - ranger
-      - redshift
+      - redshift-gtk
       - ripgrep
       - rxvt-unicode
       - smplayer
@@ -75,6 +75,7 @@ Ensure packages are installed:
       - ttf-ubuntu-font-family
       - yay
     {% elif grains['os'] == 'Fedora' %}
+      - acpi
       - arc-theme
       - dropbox
       - fontawesome-fonts
