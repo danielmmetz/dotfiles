@@ -98,6 +98,7 @@ let g:airline_theme='onedark'
 " ale
 let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_linters = {
+\   'fish': [],
 \   'python': ['autopep8', 'black', 'flake8', 'isort'],
 \}
 let g:ale_fixers = {
