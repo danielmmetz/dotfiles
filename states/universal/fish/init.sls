@@ -46,20 +46,19 @@ Ensure fishfile is symlinked:
     - user: {{ grains.user }}
 
 
+Ensure fish is installed:
+  pkg.installed:
+    - name: fish
+    - allow_updates: True
+
+
 Ensure plugins are installed:
   cmd.run:
     - name: fish -c fisher
     - runas: {{ grains.user }}
 
 
-Ensure fish is an allowed shell:
-  cmd.run:
-    - name: echo $(which fish) | sudo tee -a /etc/shells
-    - user: {{ grains.user }}
-    - unless: grep fish /etc/shells
-
-
 Ensure fish is the default shell:
-  cmd.run:
-    - name: chsh -s $(which fish) {{ grains.user }}
-    - unless: 'su {{ grains.user }} -c echo $SHELL | grep fish'
+  user.present:
+    - name: {{ grains.user }}
+    - shell: /usr/bin/fish
