@@ -3,4 +3,5 @@ include:
     - .i3
     - .libinput
     - .packages
+    - .xmodmap
     - .xresources
