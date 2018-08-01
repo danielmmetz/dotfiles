@@ -30,10 +30,16 @@ Ensure get-pyls is symlinked:
     - user: {{ grains.user }}
 
 
+{% if grains['os_family'] in ('Arch', 'Fedora') %}
 Ensure virtualenv is installed:
   pkg.installed:
+    {% if grains['os_family'] == 'Arch' %}
     - name: python-virtualenv
+    {% elif grains['os'] == 'Fedora' %}
+    - name: python3-virtualenv
+    {% endif %}
     - allow_updates: True
+{% endif %}
 
 
 Ensure python2 virtualenv:
