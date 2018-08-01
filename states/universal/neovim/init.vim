@@ -62,6 +62,7 @@ map <C-l> <silent>
 
 colorscheme onedark
 
+set autoread
 set clipboard^=unnamed,unnamedplus
 set cursorline
 set visualbell
