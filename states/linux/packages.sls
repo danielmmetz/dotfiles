@@ -1,3 +1,28 @@
+{% if grains['os'] == 'Fedora' %}
+Ensure RPMFusion Free repo:
+  pkgrepo.managed:
+    - name: rpmfusion-free
+    - humanname: RPM Fusion for Fedora - Free
+    - mirrorlist: http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch
+
+
+Ensure RPMFusion Nonfree repo:
+  pkgrepo.managed:
+    - name: rpmfusion-nonfree
+    - humanname: RPM Fusion for Fedora - Nonfree
+    - mirrorlist: http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-$releasever&arch=$basearch
+
+
+Ensure repolist permissions:
+  file.directory:
+    - name: /etc/yum.repos.d
+    - dir_mode: 755
+    - file_mode: 644
+    - recurse:
+      - mode
+{% endif %}
+
+
 Ensure packages are installed:
   pkg.installed:
     - pkgs:
