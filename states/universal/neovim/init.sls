@@ -30,7 +30,7 @@ Ensure get-pyls is symlinked:
     - user: {{ grains.user }}
 
 
-{% if grains['os_family'] in ('Arch', 'Fedora') %}
+{% if grains['os_family'] == 'Arch' or grains['os'] == 'Fedora' %}
 Ensure virtualenv is installed:
   pkg.installed:
     {% if grains['os_family'] == 'Arch' %}

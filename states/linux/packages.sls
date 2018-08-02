@@ -48,38 +48,37 @@ Ensure packages are installed:
       - htop
       - i3blocks
       - lxappearance
-      - mpv
       - ncdu
       - neovim
       - network-manager-applet
       - pcmanfm
       - powerline-fonts
-      - python-virtualenv
       - ranger
       - redshift-gtk
       - ripgrep
       - rxvt-unicode
-      - smplayer
       - the_silver_searcher
       - transmission-cli
-      - unrar
       - zathura
       - zathura-pdf-mupdf
     {% if grains['os_family'] == 'Arch' %}
       - arc-gtk-theme
       - arc-icon-theme
+      - dropbox
+      - google-chrome-stable
+      - mpv
       - pa-applet
       - playerctl
       - python-pip
       - rxvt-unicode-terminfo
+      - smplayer
       - ttf-ubuntu-font-family
+      - unrar
       - yay
     {% elif grains['os'] == 'Fedora' %}
       - acpi
       - arc-theme
-      - dropbox
       - fontawesome-fonts
-      - google-chrome-stable
       - i3
       - i3lock
       - kitty
