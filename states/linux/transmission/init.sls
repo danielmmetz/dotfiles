@@ -23,7 +23,7 @@ Ensure transmission can modify contents within Downloads:
     - perms: wrx
 
 
-{% if grains['os_family'] in ('Arch', 'Fedora') %}
+{% if grains['os_family'] == 'Arch' or grains['os'] == 'Fedora' %}
 {% set daemon_name = 'transmission' if grains['os_family'] == 'Arch' else 'transmission-daemon' %}
 Ensure transmission service is enabled:
   cmd.run:

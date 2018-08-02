@@ -131,6 +131,10 @@ bar {
         }
 }
 
+# brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
 # audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
@@ -146,7 +150,6 @@ bindsym $mod+Control+l exec i3lock -c 000000
 # browser launch
 bindsym $mod+b exec chromium
 
-exec --no-startup-id xrandr --output DP-0 --primary --auto --left-of HDMI-0
 exec --no-startup-id compton -CGb --backend glx --vsync opengl-swc
 exec --no-startup-id feh --bg-fill $HOME/.local/share/feh/wallpaper-grey.jpg --bg-fill $HOME/.local/share/feh/wallpaper-grey.jpg
 

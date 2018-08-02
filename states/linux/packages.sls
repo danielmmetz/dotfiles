@@ -86,5 +86,6 @@ Ensure packages are installed:
       - numix-gtk-theme
       - numix-icon-theme
       - ubuntu-title-fonts
+      - xbacklight
     {% endif %}
     - allow_updates: True

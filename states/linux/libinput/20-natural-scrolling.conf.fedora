@@ -1,6 +1,13 @@
 Section "InputClass"
-	Identifier "Natural Scrolling"
+	Identifier "Natural Scrolling Pointer"
 	MatchIsPointer "on"
+	MatchDevicePath "/dev/input/event*"
+	Option "NaturalScrolling" "on"
+EndSection
+
+Section "InputClass"
+	Identifier "Natural Scrolling Touchpad"
+	MatchIsTouchpad "on"
 	MatchDevicePath "/dev/input/event*"
 	Option "NaturalScrolling" "on"
 EndSection
