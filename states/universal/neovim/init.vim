@@ -99,11 +99,12 @@ let g:airline_theme='onedark'
 let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_linters = {
 \   'fish': [],
+\   'go': ['gofmt', 'goimports', 'go vet', 'gotype', 'go build', 'gosimple', 'staticcheck'],
 \   'python': ['autopep8', 'black', 'flake8', 'isort'],
 \}
 let g:ale_fixers = {
+\   'go': ['gofmt', 'goimports'],
 \   'python': ['black', 'isort'],
-\   'go': ['goimports'],
 \}
 
 " black
@@ -115,7 +116,7 @@ let g:strip_whitespace_on_save = 1
 
 " language client
 let g:LanguageClient_diagnosticsEnable = 0
-let g:LanguageClient_serverCommands = { 'python': ['get-pyls'] }
+let g:LanguageClient_serverCommands = { 'go': ['go-langserver'], 'python': ['get-pyls'] }
 
 " tagbar
 let g:tagbar_left = 1
