@@ -42,8 +42,8 @@ fi
 $USE_SUDO salt-call --config=./ grains.setvals "{\
     \"dotfiles_dir\": \"$DOTFILES_DIR\", \
     \"home\": \"$HOME_DIR\", \
-    \"python2\": \"$PYTHON2\", \
-    \"python3\": \"$PYTHON3\", \
+    \"python2\": \"$(which python2)\", \
+    \"python3\": \"$(which python3)\", \
     \"states_dir\": \"$STATES_DIR\", \
     \"user\": \"$USERNAME\" \
 }"
