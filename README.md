@@ -15,5 +15,5 @@ Due to some permissions issues, AUR package installalation is not yet configured
 Please run the following:
 
 ```sh
-yay -Syu alacritty-git arc-gtk-theme arc-icon-theme google-chrome i3lock-fancy-git python-pre-commit sonarr spotify steam ttf-emojione
+yay -Syu alacritty-git arc-gtk-theme arc-icon-theme go-langserver-git google-chrome i3lock-fancy-git python-pre-commit sonarr spotify steam ttf-emojione
 ```
