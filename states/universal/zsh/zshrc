@@ -1,0 +1,43 @@
+# packages
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting"
+
+zplug "clvv/fasd", as:command, use:fasd
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*", \
+    if:"[[ $OSTYPE == *darwin* ]]"
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*linux*amd64*", \
+    if:"[[ $OSTYPE == *linux* ]]"
+
+zplug 'simnalamburt/shellder', as:theme
+zplug "lib/history", from:oh-my-zsh
+zplug load
+
+
+# initialization
+eval "$(fasd --init auto)"
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+
+# settings
+bindkey -e
+if test -f ~/.credentials; then source $HOME/.credentials; fi
+if command -v exa > /dev/null; then alias ls=exa; fi
+if command -v nvim > /dev/null; then alias vi=nvim; fi
+alias la="ls -la"
+alias ll="ls -l"
+alias vim=vi
+alias vimrc="vi $HOME/.config/nvim/init.vim"
+export DEFAULT_USER=$(whoami)
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"

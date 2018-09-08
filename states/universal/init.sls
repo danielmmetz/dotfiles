@@ -5,3 +5,4 @@ include:
     - .git
     - .kitty
     - .neovim
+    - .zsh
