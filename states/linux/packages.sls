@@ -64,6 +64,7 @@ Ensure packages are installed:
     {% if grains['os_family'] == 'Arch' %}
       - arc-gtk-theme
       - arc-icon-theme
+      - bat
       - dropbox
       - google-chrome-stable
       - mpv
