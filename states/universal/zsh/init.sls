@@ -12,3 +12,8 @@ Ensure zsh config is symlinked:
     - target: {{ grains.states_dir }}/universal/zsh/zshrc
     - force: True
     - user: {{ grains.user }}
+
+Ensure zsh is the default shell:
+  user.present:
+    - name: {{ grains.user }}
+    - shell: /usr/local/bin/zsh
