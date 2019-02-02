@@ -97,6 +97,7 @@ let g:airline_theme='onedark'
 
 " ale
 let g:ale_python_flake8_options = '--max-line-length 120'
+let g:python_black_options = "--line-length=120 --skip-string-normalization"
 let g:ale_linters = {
 \   'fish': [],
 \   'go': ['gofmt', 'goimports', 'go vet', 'gotype', 'go build', 'gosimple', 'staticcheck'],
@@ -104,11 +105,13 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'go': ['gofmt', 'goimports'],
-\   'python': ['black', 'isort'],
+\   'python': [],
 \}
+let g:ale_fix_on_save = 1
 
 " black
 let g:black_linelength = 120
+let g:black_skip_string_normalization = 1
 let g:black_virtualenv = '/Users/dmetz/.venvs/neovim3'
 
 " better whitespace
@@ -134,12 +137,10 @@ nnoremap <C-n> :noh<CR>
 
 tnoremap <Esc> <C-\><C-n>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ale
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nmap <silent> <C-s> :ALEFix<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy align
@@ -161,6 +162,7 @@ nnoremap <C-p> :GFiles<cr>
 nnoremap <silent> <leader>d :call LanguageClient_textDocument_definition()<Cr>
 nnoremap <silent> <leader>n :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> gi :call LanguageClient_textDocument_implementation()<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
