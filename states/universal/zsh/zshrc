@@ -22,6 +22,7 @@ zplug "junegunn/fzf-bin", \
 
 zplug 'simnalamburt/shellder', as:theme
 zplug "lib/history", from:oh-my-zsh
+zplug "plugins/shrink-path",   from:oh-my-zsh
 zplug load
 
 
@@ -39,5 +40,8 @@ alias la="ls -la"
 alias ll="ls -l"
 alias vim=vi
 alias vimrc="vi $HOME/.config/nvim/init.vim"
+alias unrartv="unrar x *.rar && mv *.mkv /media/TV/$(basename $(pwd)).mkv &"
 export DEFAULT_USER=$(whoami)
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
