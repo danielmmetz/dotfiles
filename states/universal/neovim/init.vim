@@ -119,7 +119,7 @@ let g:strip_whitespace_on_save = 1
 
 " language client
 let g:LanguageClient_diagnosticsEnable = 0
-let g:LanguageClient_serverCommands = { 'go': ['go-langserver'], 'python': ['get-pyls'] }
+let g:LanguageClient_serverCommands = { 'go': ['bingo'], 'python': ['get-pyls'] }
 
 " tagbar
 let g:tagbar_left = 1
