@@ -100,7 +100,7 @@ let g:ale_python_flake8_options = '--max-line-length 120'
 let g:python_black_options = "--line-length=120 --skip-string-normalization"
 let g:ale_linters = {
 \   'fish': [],
-\   'go': ['gofmt', 'goimports', 'go vet', 'gotype', 'go build', 'gosimple', 'staticcheck'],
+\   'go': ['gofmt', 'goimports', 'go vet', 'gotype', 'go build', 'gosimple', 'staticcheck', 'golangci-lint'],
 \   'python': ['autopep8', 'black', 'flake8', 'isort'],
 \}
 let g:ale_fixers = {
