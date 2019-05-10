@@ -6,3 +6,5 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
+[url "ssh://git@github.com/lyft/"]
+	insteadOf = https://github.com/lyft/
