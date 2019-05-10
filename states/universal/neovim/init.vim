@@ -17,7 +17,7 @@ Plug 'majutsushi/tagbar'
 " editor ui
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'mhinz/vim-signify'
-Plug 'roxma/nvim-completion-manager'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'w0rp/ale'
 
 " vim enhancements
@@ -157,13 +157,13 @@ nnoremap <C-b> :Buffers<cr>
 nnoremap <C-p> :GFiles<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nvim-completion-manager
+" coc.nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader>d :call LanguageClient_textDocument_definition()<Cr>
-nnoremap <silent> <leader>n :call LanguageClient_textDocument_references()<CR>
-nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
-nnoremap <silent> gi :call LanguageClient_textDocument_implementation()<CR>
-
+nmap <leader>r <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar
