@@ -34,6 +34,8 @@ services:
     volumes:
       - /volume1/docker/config/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9000:9000
     restart: unless-stopped
   ombi:
     image: linuxserver/ombi
