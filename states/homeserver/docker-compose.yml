@@ -1,0 +1,116 @@
+version: "2"
+services:
+  autoplex:
+    image: danielmmetz/autoplex
+    container_name: autoplex
+    network_mode: host
+    environment:
+      - PUID=1026
+      - PGID=100
+    volumes:
+      - /volume1/docker/downloads:/downloads
+      - /volume1/docker/media/tv:/tv
+      - /volume1/docker/media/movies:/movies
+    restart: unless-stopped
+    command: ["--src", "/downloads/complete/tv", "--dest", "/tv", "--src", "/downloads/complete/movies", "--dest", "/movies"]
+  jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    network_mode: host
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/Los_Angeles
+    volumes:
+      - /volume1/docker/config/jackett:/config
+      - /volume1/docker/watch:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+  ombi:
+    image: linuxserver/ombi
+    container_name: ombi
+    network_mode: host
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/Los_Angeles
+    volumes:
+      - /volume1/docker/config/ombi:/config
+      - /volume1/docker/media/tv:/tv
+      - /volume1/docker/downloads:/downloads
+    ports:
+      - 3579:3579
+    restart: unless-stopped
+  organizr:
+    image: linuxserver/organizr
+    container_name: organizr
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/Los_Angeles
+    volumes:
+      - /volume1/docker/config/organizr:/config
+    ports:
+      - 9983:80
+    restart: unless-stopped
+  plex:
+    image: linuxserver/plex
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1026
+      - PGID=100
+      - VERSION=docker
+    volumes:
+      - /volume1/docker/config/plex:/config
+      - /volume1/docker/media/tv:/tv
+      - /volume1/docker/media/movies:/movies
+    restart: unless-stopped
+  radarr:
+    image: linuxserver/radarr
+    container_name: radarr
+    network_mode: host
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/Los_Angeles
+    volumes:
+      - /volume1/docker/config/radarr:/config
+      - /volume1/docker/media/movies:/movies
+      - /volume1/docker/downloads:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+  sonarr:
+    image: linuxserver/sonarr
+    container_name: sonarr
+    network_mode: host
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/Los_Angeles
+    volumes:
+      - /volume1/docker/config/sonarr:/config
+      - /volume1/docker/media/tv:/tv
+      - /volume1/docker/downloads:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+  transmission:
+    image: linuxserver/transmission
+    container_name: transmission
+    network_mode: host
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/Los_Angeles
+    volumes:
+      - /volume1/docker/config/transmission:/config
+      - /volume1/docker/downloads:/downloads
+      - /volume1/docker/watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
