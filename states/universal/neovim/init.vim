@@ -11,14 +11,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
 
 " editor ui
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'mhinz/vim-signify'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " vim enhancements
 Plug 'chrisbra/SudoEdit.vim'
@@ -35,15 +31,14 @@ Plug 'tpope/vim-unimpaired'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/vim-easy-align'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'peterrincker/vim-argumentative'
 Plug 'wellle/targets.vim'
 
 " language specific
-Plug 'ambv/black',                   { 'for': 'python' }
+Plug 'fatih/vim-go',                 { 'for': 'go' }
 Plug 'saltstack/salt-vim',           { 'for': 'sls' }
-Plug 'sheerun/vim-polyglot'
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'tsx' }
 
 call plug#end()
 
@@ -53,6 +48,11 @@ call plug#end()
 augroup VIMRC_AUTO_RELOAD
     autocmd!
     autocmd bufwritepost $MYVIMRC source $MYVIMRC
+augroup end
+
+augroup COC_SHOW_SIGNATURE_HELPER
+    autocmd!
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -95,34 +95,17 @@ let g:airline#extensions#virtualenv#enabled = 0
 let g:airline_powerline_fonts=1
 let g:airline_theme='onedark'
 
-" ale
-let g:ale_python_flake8_options = '--max-line-length 120'
-let g:python_black_options = "--line-length=120 --skip-string-normalization"
-let g:ale_linters = {
-\   'fish': [],
-\   'go': ['gofmt', 'goimports', 'go vet', 'gotype', 'go build', 'gosimple', 'staticcheck', 'golangci-lint'],
-\   'python': ['autopep8', 'black', 'flake8', 'isort'],
-\}
-let g:ale_fixers = {
-\   'go': ['gofmt', 'goimports'],
-\   'python': [],
-\}
-let g:ale_fix_on_save = 1
-
-" black
-let g:black_linelength = 120
-let g:black_skip_string_normalization = 1
-let g:black_virtualenv = '/Users/dmetz/.venvs/neovim3'
-
 " better whitespace
+let g:better_whitespace_enabled = 0
+let g:strip_whitelines_at_eof = 1
+let g:strip_whitespace_confirm = 0
 let g:strip_whitespace_on_save = 1
 
-" language client
-let g:LanguageClient_diagnosticsEnable = 0
-let g:LanguageClient_serverCommands = { 'go': ['bingo'], 'python': ['get-pyls'] }
-
-" tagbar
-let g:tagbar_left = 1
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_code_completion_enabled = 0  " use coc.nvim instead
+let g:go_def_mapping_enabled = 0
+let g:go_list_height = 0
 
 " vim-plug
 let g:plug_window = 'enew'
