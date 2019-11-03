@@ -30,7 +30,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  
+
   nix.allowedUsers = [ "metz" ];
 
   # Select internationalisation properties.
@@ -46,7 +46,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    home-manager
     geoclue2
     vim
     zsh
@@ -85,6 +84,7 @@
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
   services.xserver.libinput.tapping = false;
+  services.xserver.libinput.naturalScrolling = true;
 
   # Enable the KDE Desktop Environment.
   services.xserver.desktopManager.plasma5.enable = true;
@@ -98,7 +98,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.metz = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; 
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
   };
 
@@ -110,4 +110,3 @@
   system.stateVersion = "19.09"; # Did you read the comment?
 
 }
-
