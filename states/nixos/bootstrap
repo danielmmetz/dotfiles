@@ -3,6 +3,7 @@
 set -euo pipefail
 
 echo 'backing up /etc/nixos/configuration.nix'
+sudo rm /etc/nixos/configuration.nix.bak || true
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 
 echo 'linking /etc/nixos/configuration.nix'
@@ -21,6 +22,17 @@ if ! nix-env --query --attr-path | grep --quiet home-manager; then
     echo 'installing home manager'
     nix-env --install home-manager
 fi
+
+if [[ -e "$XDG_CONFIG_HOME/nixpkgs/home.nix" ]]; then
+    echo "backing up $XDG_CONFIG_HOME/nixpkgs/home.nix"
+    mv "$XDG_CONFIG_HOME/nixpkgs/home.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix.bak"
+fi
+
+echo 'allowing unfree'
+echo '{ allowUnfree = true; }' > "$XDG_CONFIG_HOME/nixpkgs/config.nix"
+
+echo "symlinking $XDG_CONFIG_HOME/nixpkgs/home.nix"
+ln -s "$(pwd)/home.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix"
 
 echo 'running home-manager switch'
 home-manager switch
