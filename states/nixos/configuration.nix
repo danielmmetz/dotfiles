@@ -42,11 +42,11 @@
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
+  location.provider = "geoclue2";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    geoclue2
     vim
     zsh
   ];
@@ -89,11 +89,6 @@
   # Enable the KDE Desktop Environment.
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.sddm.enable = true;
-
-  # Enable alternative window managers.
-  services.xserver.windowManager.i3.enable = true;
-
-  services.geoclue2.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.metz = {
