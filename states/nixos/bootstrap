@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo 'backing up /etc/nixos/configuration.nix'
+sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+
+echo 'linking /etc/nixos/configuration.nix'
+sudo ln "$(pwd)/configuration.nix" /etc/nixos/configuration.nix
+
+echo 'running nixos-rebuild switch'
+sudo nixos-rebuild switch
+
+if ! nix-channel --list | grep --quiet home-manager; then
+    echo 'adding home-manager channel'
+    nix-channel --add https://github.com/rycee/home-manager/archive/release-19.09.tar.gz home-manager
+    nix-channel --update
+fi
+
+if ! nix-env --query --attr-path | grep --quiet home-manager; then
+    echo 'installing home manager'
+    nix-env --install home-manager
+fi
+
+echo 'running home-manager switch'
+home-manager switch
