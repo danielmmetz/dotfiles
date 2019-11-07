@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.packages = [
@@ -7,6 +7,7 @@
     pkgs.exa
     pkgs.fasd
     pkgs.fd
+    pkgs.feh
     pkgs.firefox
     pkgs.fzf
     pkgs.git
@@ -16,10 +17,12 @@
     pkgs.google-chrome
     pkgs.htop
     pkgs.httpie
+    pkgs.lxappearance
     pkgs.neofetch
     pkgs.nodejs
     pkgs.psmisc
     pkgs.python3
+    pkgs.qgnomeplatform
     pkgs.ranger
     pkgs.ripgrep
     pkgs.silver-searcher
@@ -27,6 +30,10 @@
     pkgs.tree
     pkgs.xclip
     pkgs.zsh
+
+    pkgs.arc-theme
+    pkgs.nordic
+    pkgs.nordic-polar
   ];
 
   programs.git = {
@@ -42,16 +49,18 @@
     };
   };
 
-  programs.neovim = (import ./programs/neovim.nix) pkgs;
-  programs.zsh = (import ./programs/zsh.nix) pkgs;
+  programs.neovim = import ./programs/neovim.nix pkgs;
+  programs.zsh = import ./programs/zsh.nix pkgs;
 
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
   services.redshift.tray = true;
 
-  xdg.configFile."kcminputrc".source = ./programs/kde/kcminputrc;
-  xdg.configFile."kglobalshortcutsrc".source = ./programs/kde/kglobalshortcutsrc;
   xdg.configFile."konsolerc".source = ./programs/kde/konsolerc;
   xdg.dataFile."konsole/Nordic.colorscheme".source = ./programs/kde/Nordic.colorscheme;
   xdg.dataFile."konsole/Profile.profile".source = ./programs/kde/Profile.profile;
+
+  news.display = "silent";
+
+  xsession.windowManager.i3 = import ./programs/i3/i3.nix { config = config; lib = lib; pkgs = pkgs; };
 }

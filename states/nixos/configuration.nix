@@ -81,6 +81,9 @@
   services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
+  services.xserver.autoRepeatDelay = 250;
+  services.xserver.autoRepeatInterval = 40;
+
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
   services.xserver.libinput.tapping = false;
@@ -89,6 +92,7 @@
   # Enable the KDE Desktop Environment.
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.sddm.enable = true;
+  services.xserver.windowManager.i3.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.metz = {
