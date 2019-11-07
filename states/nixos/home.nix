@@ -27,6 +27,7 @@
     pkgs.ripgrep
     pkgs.silver-searcher
     pkgs.spotify
+    pkgs.tldr
     pkgs.tree
     pkgs.xclip
     pkgs.zsh
