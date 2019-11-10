@@ -92,6 +92,7 @@
   services.xserver.libinput.naturalScrolling = true;
 
   # Enable the KDE Desktop Environment.
+  services.dbus.packages = with pkgs; [ gnome3.dconf ];
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.i3.enable = true;
