@@ -15,11 +15,16 @@
     pkgs.gitAndTools.pre-commit
     pkgs.go
     pkgs.google-chrome
+    pkgs.gparted
+    pkgs.gron
     pkgs.htop
     pkgs.httpie
+    pkgs.jq
+    pkgs.kitty
     pkgs.lxappearance
     pkgs.neofetch
     pkgs.nodejs
+    pkgs.pcmanfm
     pkgs.psmisc
     pkgs.python3
     pkgs.qgnomeplatform
@@ -29,10 +34,13 @@
     pkgs.spotify
     pkgs.tldr
     pkgs.tree
+    pkgs.wmctrl
     pkgs.xclip
+    pkgs.yq
     pkgs.zsh
 
     pkgs.arc-theme
+    pkgs.arc-icon-theme
     pkgs.nordic
     pkgs.nordic-polar
   ];
@@ -52,16 +60,12 @@
 
   programs.neovim = import ./programs/neovim.nix pkgs;
   programs.zsh = import ./programs/zsh.nix pkgs;
+  xdg.configFile."kitty/kitty.conf".source = ./programs/kitty.conf;
 
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
-  services.redshift.tray = true;
-
-  xdg.configFile."konsolerc".source = ./programs/kde/konsolerc;
-  xdg.dataFile."konsole/Nordic.colorscheme".source = ./programs/kde/Nordic.colorscheme;
-  xdg.dataFile."konsole/Profile.profile".source = ./programs/kde/Profile.profile;
+  # services.redshift.tray = true;
 
   news.display = "silent";
-
   xsession.windowManager.i3 = import ./programs/i3/i3.nix { config = config; lib = lib; pkgs = pkgs; };
 }

@@ -11,7 +11,7 @@
 
       lib.mkOptionDefault {
         "${modifier}+d" = "exec --no-startup-id ${pkgs.dmenu}/bin/dmenu_run";
-        "${modifier}+Return" = "exec ${pkgs.konsole}/bin/konsole";
+        "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${modifier}+b" = "exec ${pkgs.firefox}/bin/firefox";
         "${modifier}+Control+l" = "exec --no-startup-id loginctl lock-session";
         "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to logout?' -B 'Yes' 'loginctl terminate-user $(whoami)'";

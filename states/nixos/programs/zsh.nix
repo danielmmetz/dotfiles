@@ -2,7 +2,7 @@
 
 {
   enable = true;
-  enableAutosuggestions = true;
+  # enableAutosuggestions = true;  # TODO pair with an acceptable theme
   defaultKeymap = "emacs";
   history.ignoreDups = true;
   history.expireDuplicatesFirst = true;
@@ -10,6 +10,7 @@
   history.extended = true;
   history.size = 50000;
   sessionVariables = {
+    DOTFILES = "$HOME/src/dotfiles";
     EDITOR = "nvim";
     GOPATH = "$HOME/go";
     PATH = "$PATH:$GOPATH/bin";
@@ -20,9 +21,10 @@
     ls = "exa";
     vi = "nvim";
     vim = "nvim";
-    vimrc = "nvim $HOME/.config/nvim/init.vim";
-    homerc = "nvim $HOME/.config/nixpkgs/home.nix";
-    nixosrc = "sudo nvim /etc/nixos/configuration.nix";
+    vimrc = "cd $DOTFILES && nvim ./states/nixos/programs/neovim.nix && cd -$";
+    homerc = "cd $DOTFILES && nvim ./states/nixos/home.nix && cd -$";
+    nixosrc = "cd $DOTFILES && nvim ./states/nixos/configuration.nix && cd -$";
+    zshrc = "cd $DOTFILES && nvim ./states/nixos/programs/zsh.nix && cd -$";
   };
   plugins = [
     {
