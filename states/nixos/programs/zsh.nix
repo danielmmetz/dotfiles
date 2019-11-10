@@ -23,7 +23,7 @@
     vim = "nvim";
     vimrc = "cd $DOTFILES && nvim ./states/nixos/programs/neovim.nix && cd -$";
     homerc = "cd $DOTFILES && nvim ./states/nixos/home.nix && cd -$";
-    nixosrc = "cd $DOTFILES && nvim ./states/nixos/configuration.nix && cd -$";
+    nixosrc = "cd $DOTFILES && sudo nvim ./states/nixos/configuration.nix && cd -$";
     zshrc = "cd $DOTFILES && nvim ./states/nixos/programs/zsh.nix && cd -$";
   };
   plugins = [
