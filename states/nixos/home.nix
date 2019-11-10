@@ -15,35 +15,36 @@
     pkgs.gitAndTools.pre-commit
     pkgs.go
     pkgs.google-chrome
-    pkgs.gparted
     pkgs.gron
     pkgs.htop
     pkgs.httpie
     pkgs.jq
     pkgs.kitty
-    pkgs.lxappearance
     pkgs.neofetch
     pkgs.nodejs
-    pkgs.pcmanfm
-    pkgs.psmisc
     pkgs.python3
-    pkgs.qgnomeplatform
     pkgs.ranger
     pkgs.ripgrep
     pkgs.silver-searcher
     pkgs.spotify
     pkgs.tldr
     pkgs.tree
-    pkgs.wmctrl
-    pkgs.xclip
     pkgs.yq
     pkgs.zsh
 
+    pkgs.pcmanfm
+    pkgs.psmisc
+    pkgs.xclip
+    pkgs.wmctrl
+
+    pkgs.lxappearance
     pkgs.arc-theme
     pkgs.arc-icon-theme
     pkgs.nordic
     pkgs.nordic-polar
   ];
+
+  news.display = "silent";
 
   programs.git = {
     enable = true;
@@ -65,7 +66,5 @@
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
   # services.redshift.tray = true;
-
-  news.display = "silent";
   xsession.windowManager.i3 = import ./programs/i3/i3.nix { config = config; lib = lib; pkgs = pkgs; };
 }
