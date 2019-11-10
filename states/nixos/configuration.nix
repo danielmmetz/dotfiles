@@ -40,6 +40,7 @@
   #   consoleKeyMap = "us";
   #   defaultLocale = "en_US.UTF-8";
   # };
+  i18n.consoleUseXkbConfig = true;
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -80,7 +81,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+  services.xserver.xkbOptions = "ctrl:swapcaps";
 
   services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 40;
