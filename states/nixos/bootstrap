@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if [ -z "${1-}" ]; then
+    echo "usage: ./bootstrap <profile-name>"
+    exit 1
+fi
+
 echo 'backing up /etc/nixos/configuration.nix'
 sudo rm /etc/nixos/configuration.nix.bak || true
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
@@ -23,6 +28,7 @@ if ! nix-env --query --attr-path | grep --quiet home-manager; then
     nix-env --install home-manager
 fi
 
+XDG_CONFIG_HOME="$HOME/.config"
 if [[ -e "$XDG_CONFIG_HOME/nixpkgs/home.nix" ]]; then
     echo "backing up $XDG_CONFIG_HOME/nixpkgs/home.nix"
     mv "$XDG_CONFIG_HOME/nixpkgs/home.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix.bak"
@@ -31,8 +37,8 @@ fi
 echo 'allowing unfree'
 echo '{ allowUnfree = true; }' > "$XDG_CONFIG_HOME/nixpkgs/config.nix"
 
-echo "symlinking $XDG_CONFIG_HOME/nixpkgs/home.nix"
-ln -s "$(pwd)/home.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix"
+echo "symlinking home.nix for profile $1"
+ln -s "$(pwd)/home-$1.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix"
 
 echo 'running home-manager switch'
 home-manager switch

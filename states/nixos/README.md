@@ -8,3 +8,9 @@ This is very much a work-in-progress.
 Notes:
 - ended up using -unstable for userspace
 - had to manually install gopls
+
+
+Usage:
+```bash
+./bootstrap <profile>
+```

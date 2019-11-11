@@ -31,11 +31,6 @@
     pkgs.tree
     pkgs.yq
     pkgs.zsh
-
-    pkgs.pcmanfm
-    pkgs.psmisc
-    pkgs.xclip
-    pkgs.wmctrl
   ];
 
   news.display = "silent";
@@ -56,21 +51,4 @@
   programs.neovim = import ./programs/neovim.nix pkgs;
   programs.zsh = import ./programs/zsh.nix pkgs;
   xdg.configFile."kitty/kitty.conf".source = ./programs/kitty.conf;
-
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Arc";
-      package = pkgs.arc-icon-theme;
-    };
-    theme = {
-      name = "Arc";
-      package = pkgs.arc-theme;
-    };
-  };
-
-  services.redshift.enable = true;
-  services.redshift.provider = "geoclue2";
-  # services.redshift.tray = true;
-  xsession.windowManager.i3 = import ./programs/i3/i3.nix { config = config; lib = lib; pkgs = pkgs; };
 }
