@@ -91,11 +91,17 @@
   services.xserver.libinput.tapping = false;
   services.xserver.libinput.naturalScrolling = true;
 
+  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.deviceSection = ''
+    Option "TearFree" "true"
+  '';
+
   # Enable the KDE Desktop Environment.
   services.dbus.packages = with pkgs; [ gnome3.dconf ];
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.i3.enable = true;
+  services.compton.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.metz = {
