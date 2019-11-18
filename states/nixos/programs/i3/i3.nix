@@ -44,6 +44,7 @@
     startup = [
       { command = "feh --bg-fill ${./matador-rocks.jpg}"; always = true; notification = false; }
       { command = "systemctl --user restart polybar"; always = true; notification = false; }
+      { command = "xss-lock -- i3lock -c 000000"; always = true; notification = false; }
     ];
     window.border = 5;
     # https://userbase.kde.org/Tutorials/Using_Other_Window_Managers_with_Plasma

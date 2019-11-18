@@ -16,7 +16,9 @@
     pkgs.rofi
     pkgs.wmctrl
     pkgs.xclip
+    pkgs.xautolock
     pkgs.xorg.xbacklight
+    pkgs.xss-lock
   ];
 
   gtk = {
@@ -33,6 +35,11 @@
 
 
   programs.pa-set-sink.enable = true;
+  services.screen-locker = {
+    enable = true;
+    inactiveInterval = 5;
+    lockCmd = "${pkgs.i3lock}/bin/i3lock -c 000000";
+  };
 
   services.polybar = import ./programs/polybar.nix { config = config; lib = lib; pkgs = pkgs; };
   services.redshift.enable = true;

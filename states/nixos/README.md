@@ -5,7 +5,6 @@ This is very much a work-in-progress.
 - [ ] validate on macos
 - [ ] remove KDE/gnome leftovers
 - [ ] set-up declarative coc-nvim
-- [ ] set-up xautolocker and such
 
 
 Notes:
