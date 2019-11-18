@@ -4,7 +4,6 @@ This is very much a work-in-progress.
 - [ ] LUKS set-up
 - [ ] validate on macos
 - [ ] remove KDE/gnome leftovers
-- [ ] set-up declarative coc-nvim
 
 
 Notes:
