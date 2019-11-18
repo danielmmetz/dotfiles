@@ -9,6 +9,7 @@
     pkgs.fd
     pkgs.feh
     pkgs.firefox
+    pkgs.font-awesome
     pkgs.fzf
     pkgs.git
     pkgs.gitAndTools.hub
@@ -27,8 +28,10 @@
     pkgs.ripgrep
     pkgs.silver-searcher
     pkgs.spotify
+    pkgs.source-code-pro
     pkgs.tldr
     pkgs.tree
+    pkgs.ubuntu_font_family
     pkgs.yq
     pkgs.zsh
   ];

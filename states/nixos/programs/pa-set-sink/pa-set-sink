@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# pa-set-sink sets a sink as default and moves each input to it.
+# it will prompt the user for selection via dmenu
+
+set -euo pipefail
+
+sinks="$(pactl list sinks short | awk '{ print $1, $2 }')"
+desired_sink="$(echo "$sinks" | dmenu -p "Choose an audio sink" -l 10 | awk '{ print $1 }')"
+sink_inputs=$(pactl list sink-inputs short | awk '{ print $1 }')
+
+# set the default output device
+pactl set-default-sink $desired_sink &> /dev/null
+# apply the changes to all running apps to use the new output device
+for i in ${sink_inputs[*]}; do
+    pactl move-sink-input $i $desired_sink &> /dev/null;
+done

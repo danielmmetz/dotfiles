@@ -13,7 +13,7 @@
         "${modifier}+d" = "exec --no-startup-id ${pkgs.dmenu}/bin/dmenu_run";
         "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${modifier}+b" = "exec ${pkgs.firefox}/bin/firefox";
-        "${modifier}+Control+l" = "exec --no-startup-id loginctl lock-session";
+        "${modifier}+Control+l" = "exec --no-startup-id i3lock -c 000000";
         "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to logout?' -B 'Yes' 'loginctl terminate-user $(whoami)'";
 
         "${modifier}+a" = "focus parent";
@@ -30,9 +30,20 @@
         "${modifier}+Shift+l" = "move right";
 
         "${modifier}+r" = null;
+        "XF86MonBrightnessUp" = "exec xbacklight -inc 5";
+        "XF86MonBrightnessDown" = "exec xbacklight -dec 5";
+
+        "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume";
+        "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume";
+        "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound";
+
+        "XF86AudioPlay" = "exec playerctl play-pause";
+        "XF86AudioNext" = "exec playerctl next";
+        "XF86AudioPrev" = "exec playerctl previous";
     };
     startup = [
       { command = "feh --bg-fill ${./matador-rocks.jpg}"; always = true; notification = false; }
+      { command = "systemctl --user restart polybar"; always = true; notification = false; }
     ];
     window.border = 5;
     # https://userbase.kde.org/Tutorials/Using_Other_Window_Managers_with_Plasma
