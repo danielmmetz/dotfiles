@@ -22,6 +22,7 @@
     pkgs.wmctrl
     pkgs.xautolock
     pkgs.xclip
+    # pkgs.xidlehook  # TODO replace xautolock with xidlehook
     pkgs.xorg.xbacklight
     pkgs.xorg.xev
     pkgs.xss-lock
