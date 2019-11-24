@@ -32,6 +32,7 @@
     pkgs.tldr
     pkgs.tree
     pkgs.ubuntu_font_family
+    pkgs.unzip
     pkgs.yq
     pkgs.zsh
   ];

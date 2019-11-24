@@ -7,17 +7,22 @@
   ];
 
   home.packages = [
+    pkgs.arandr
     pkgs.dmenu
+    pkgs.mpv
     pkgs.networkmanager_dmenu
     pkgs.pavucontrol
     pkgs.pcmanfm
     pkgs.playerctl
     pkgs.psmisc
     pkgs.rofi
+    pkgs.slack
+    pkgs.speedtest-cli
     pkgs.wmctrl
-    pkgs.xclip
     pkgs.xautolock
+    pkgs.xclip
     pkgs.xorg.xbacklight
+    pkgs.xorg.xev
     pkgs.xss-lock
   ];
 
@@ -35,11 +40,6 @@
 
 
   programs.pa-set-sink.enable = true;
-  services.screen-locker = {
-    enable = true;
-    inactiveInterval = 5;
-    lockCmd = "${pkgs.i3lock}/bin/i3lock -c 000000";
-  };
 
   services.polybar = import ./programs/polybar.nix { config = config; lib = lib; pkgs = pkgs; };
   services.redshift.enable = true;
