@@ -8,6 +8,7 @@
 
   home.packages = [
     pkgs.arandr
+    pkgs.bat
     pkgs.dmenu
     pkgs.mpv
     pkgs.networkmanager_dmenu
@@ -40,6 +41,10 @@
 
 
   programs.pa-set-sink.enable = true;
+  programs.zsh.shellAliases = {
+    homerc = "cd $DOTFILES && nvim ./states/nixos/home-nixos.nix && cd -$";
+    nixosrc = "cd $DOTFILES && sudo nvim ./states/nixos/configuration.nix && cd -$";
+  };
 
   services.polybar = import ./programs/polybar.nix { config = config; lib = lib; pkgs = pkgs; };
   services.redshift.enable = true;
