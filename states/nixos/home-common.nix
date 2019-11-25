@@ -3,6 +3,7 @@
 {
   home.packages = [
     pkgs._1password
+    pkgs.bat
     pkgs.dnsutils
     pkgs.exa
     pkgs.fasd
@@ -21,14 +22,16 @@
     pkgs.httpie
     pkgs.jq
     pkgs.kitty
+    pkgs.mpv
+    pkgs.ncdu
     pkgs.neofetch
     pkgs.nodejs
     pkgs.python3
     pkgs.ranger
     pkgs.ripgrep
     pkgs.silver-searcher
-    pkgs.spotify
     pkgs.source-code-pro
+    pkgs.spotify
     pkgs.tldr
     pkgs.tree
     pkgs.ubuntu_font_family

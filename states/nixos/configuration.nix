@@ -17,7 +17,7 @@
   boot.initrd.luks.devices = [
     {
       name = "root";
-      device = "/dev/disk/by-uuid/e31ea662-0772-4189-9a6d-00ea08162032";
+      device = "/dev/disk/by-uuid/1341a9de-95d9-4587-9034-806337c728fd";
       preLVM = true;
       allowDiscards = true;
     }
@@ -95,7 +95,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  services.xserver.xkbOptions = "ctrl:swapcaps";
+  services.xserver.xkbOptions = "ctrl:nocaps";
 
   services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 40;

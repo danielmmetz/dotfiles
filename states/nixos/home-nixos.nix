@@ -8,9 +8,8 @@
 
   home.packages = [
     pkgs.arandr
-    pkgs.bat
     pkgs.dmenu
-    pkgs.mpv
+    pkgs.speedtest-cli
     pkgs.networkmanager_dmenu
     pkgs.pavucontrol
     pkgs.pcmanfm
@@ -18,7 +17,6 @@
     pkgs.psmisc
     pkgs.rofi
     pkgs.slack
-    pkgs.speedtest-cli
     pkgs.wmctrl
     pkgs.xautolock
     pkgs.xclip
