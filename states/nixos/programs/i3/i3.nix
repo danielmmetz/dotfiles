@@ -13,7 +13,7 @@
         "${modifier}+d" = "exec --no-startup-id ${pkgs.dmenu}/bin/dmenu_run";
         "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${modifier}+b" = "exec ${pkgs.firefox}/bin/firefox";
-        "${modifier}+Control+l" = "exec --no-startup-id ${pkgs.xautolock}/bin/xautolock -locknow";
+        "${modifier}+Control+l" = "exec --no-startup-id ${pkgs.xidlehook}/bin/xidlehook-client --socket /tmp/xidlehook.sock --trigger";
         "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to logout?' -B 'Yes' 'loginctl terminate-user $(whoami)'";
 
         "${modifier}+a" = "focus parent";
@@ -45,7 +45,16 @@
       { command = "${pkgs.feh}/bin/feh --bg-fill ${./matador-rocks.jpg}"; always = true; notification = false; }
       { command = "systemctl --user restart polybar"; always = true; notification = false; }
       { command = "${pkgs.xss-lock}/bin/xss-lock -- ${pkgs.i3lock}/bin/i3lock --nofork --color 000000"; always = true; notification = false; }
-      { command = "${pkgs.xautolock}/bin/xautolock -detectsleep -time 2 -locker '${pkgs.i3lock}/bin/i3lock --nofork --color 000000'"; always = true; notification = false; }
+      {
+        command = ''
+          ${pkgs.xidlehook}/bin/xidlehook \
+          --socket /tmp/xidlehook.sock \
+          --not-when-fullscreen \
+          --timer primary 120 '${pkgs.i3lock}/bin/i3lock --nofork --color 000000' ""
+        '';
+        always = true;
+        notification = false;
+      }
     ];
     window.border = 5;
     # https://userbase.kde.org/Tutorials/Using_Other_Window_Managers_with_Plasma
