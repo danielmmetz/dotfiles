@@ -57,19 +57,5 @@
       }
     ];
     window.border = 5;
-    # https://userbase.kde.org/Tutorials/Using_Other_Window_Managers_with_Plasma
-    window.commands = [
-      { criteria = { title = "Desktop — Plasma"; }; command = "kill; floating enable; border none"; }
-      { criteria = { class = "plasmashell"; }; command = "floating enable;"; }
-      { criteria = { class = "Plasma"; }; command = "floating enable; border none"; }
-      { criteria = { title = "plasma-desktop"; }; command = "floating enable; border none"; }
-      { criteria = { title = "win7"; }; command = "floating enable; border none"; }
-      { criteria = { class = "krunner"; }; command = "floating enable; border none"; }
-      { criteria = { class = "Kmix"; }; command = "floating enable; border none"; }
-      { criteria = { class = "Klipper"; }; command = "floating enable; border none"; }
-      { criteria = { class = "Plasmoidviewer"; }; command = "floating enable; border none"; }
-      { criteria = { class = "(?i)*nextcloud*"; }; command = "floating disable"; }
-      { criteria = { class = "plasmashell"; window_type = "notification"; }; command = "floating enable, border none, move right 700px, move down 450px, no_focus"; }
-    ];
   };
 }
