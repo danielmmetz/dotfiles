@@ -16,14 +16,14 @@
     PATH = "$PATH:$GOPATH/bin";
   };
   shellAliases = {
-    cat = "${pkgs.bat}/bin/bat";
+    cat = "bat";
     la = "ls -la";
     ll = "ls -l";
-    ls = "${pkgs.exa}/bin/exa";
-    vi = "${pkgs.neovim}/bin/neovim";
-    vim = "${pkgs.neovim}/bin/neovim";
-    vimrc = "cd $DOTFILES && ${pkgs.neovim}/bin/neovim ./states/nixos/programs/neovim.nix && cd -$";
-    zshrc = "cd $DOTFILES && ${pkgs.neovim}/bin/neovim ./states/nixos/programs/zsh.nix && cd -$";
+    ls = "exa";
+    vi = "nvim";
+    vim = "nvim";
+    vimrc = "cd $DOTFILES && nvim ./states/nixos/programs/neovim.nix && cd -$";
+    zshrc = "cd $DOTFILES && nvim ./states/nixos/programs/zsh.nix && cd -$";
   };
   plugins = [
     {
