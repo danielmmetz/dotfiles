@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+# TODO validate profile match
 if [ -z "${1-}" ]; then
     echo "usage: ./bootstrap <profile-name>"
     exit 1
@@ -14,8 +15,11 @@ sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 echo 'linking /etc/nixos/configuration.nix'
 sudo ln "$(pwd)/configuration.nix" /etc/nixos/configuration.nix
 
-echo 'running nixos-rebuild switch'
-sudo nixos-rebuild switch
+echo 'adopting nixos-unstable channel'
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+
+echo 'running nixos-rebuild --upgrade switch'
+sudo nixos-rebuild --upgrade switch
 
 if ! nix-channel --list | grep --quiet home-manager; then
     echo 'adding home-manager channel'
@@ -29,6 +33,7 @@ if ! nix-env --query --attr-path | grep --quiet home-manager; then
 fi
 
 XDG_CONFIG_HOME="$HOME/.config"
+mkdir -p $XDG_CONFIG_HOME/nixpkgs
 if [[ -e "$XDG_CONFIG_HOME/nixpkgs/home.nix" ]]; then
     echo "backing up $XDG_CONFIG_HOME/nixpkgs/home.nix"
     mv "$XDG_CONFIG_HOME/nixpkgs/home.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix.bak"
@@ -38,7 +43,7 @@ echo 'allowing unfree'
 echo '{ allowUnfree = true; }' > "$XDG_CONFIG_HOME/nixpkgs/config.nix"
 
 echo "symlinking home.nix for profile $1"
-ln -s "$(pwd)/home-$1.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix"
+ln -sf "$(pwd)/home-$1.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix"
 
 echo 'running home-manager switch'
 home-manager switch
