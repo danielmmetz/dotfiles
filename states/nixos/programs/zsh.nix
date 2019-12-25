@@ -22,7 +22,7 @@
     ls = "exa";
     vi = "nvim";
     vim = "nvim";
-    vimrc = "cd $DOTFILES && nvim ./states/nixos/programs/neovim.nix && cd -$";
+    vimrc = "cd $DOTFILES && nvim ./states/nixos/programs/neovim/neovim.nix && cd -$";
     zshrc = "cd $DOTFILES && nvim ./states/nixos/programs/zsh.nix && cd -$";
   };
   plugins = [

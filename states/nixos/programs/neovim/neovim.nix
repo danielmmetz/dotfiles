@@ -68,6 +68,11 @@
     "     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     " augroup end
 
+    " augroup GOIMPORTS
+    "     autocmd!
+    "     autocmd BufWritePre *.go call go#auto#fmt_autosave()
+    " augroup end
+
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " appearance / behavior
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

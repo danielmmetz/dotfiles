@@ -55,7 +55,8 @@
     };
   };
 
-  programs.neovim = import ./programs/neovim.nix pkgs;
+  programs.neovim = import ./programs/neovim/neovim.nix pkgs;
   programs.zsh = import ./programs/zsh.nix pkgs;
   xdg.configFile."kitty/kitty.conf".source = ./programs/kitty.conf;
+  xdg.configFile."nvim/coc-settings.json".source = ./programs/neovim/coc-settings.json;
 }
