@@ -8,15 +8,24 @@
 
   home.packages = [
     pkgs.arandr
+    pkgs.autorandr
+    pkgs.calibre
+    pkgs.compton
     pkgs.dmenu
-    pkgs.speedtest-cli
+    pkgs.gcc
+    pkgs.gnumake
+    pkgs.gptfdisk
     pkgs.networkmanager_dmenu
     pkgs.pavucontrol
     pkgs.pcmanfm
+    pkgs.pipenv
     pkgs.playerctl
+    pkgs.pythonPackages.python-language-server
     pkgs.psmisc
     pkgs.rofi
     pkgs.slack
+    pkgs.speedtest-cli
+    pkgs.usbutils
     pkgs.wmctrl
     pkgs.xautolock
     pkgs.xclip
@@ -24,6 +33,7 @@
     pkgs.xorg.xbacklight
     pkgs.xorg.xev
     pkgs.xss-lock
+    (pkgs.zathura.override { useMupdf = true; })
   ];
 
   gtk = {
