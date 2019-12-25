@@ -103,6 +103,7 @@
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
+  services.xserver.libinput.disableWhileTyping = true;
   services.xserver.libinput.tapping = false;
   services.xserver.libinput.naturalScrolling = true;
 
