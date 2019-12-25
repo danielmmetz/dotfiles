@@ -14,6 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.luks.devices = [
     {
       name = "root";
