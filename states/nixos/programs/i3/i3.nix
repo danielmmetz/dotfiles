@@ -13,7 +13,7 @@
         "${modifier}+d" = "exec --no-startup-id ${pkgs.dmenu}/bin/dmenu_run";
         "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${modifier}+b" = "exec ${pkgs.firefox}/bin/firefox";
-        "${modifier}+Control+l" = "exec --no-startup-id ${pkgs.xidlehook}/bin/xidlehook-client --socket /tmp/xidlehook.sock --trigger";
+        "${modifier}+Control+l" = "exec --no-startup-id ${pkgs.xidlehook}/bin/xidlehook-client --socket /tmp/xidlehook.sock control --action trigger";
         "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to logout?' -B 'Yes' 'loginctl terminate-user $(whoami)'";
 
         "${modifier}+a" = "focus parent";
@@ -29,7 +29,11 @@
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
 
-        "${modifier}+r" = null;
+        "${modifier}+minus" = "scratchpad show";
+        "${modifier}+Shift+minus" = "move scratchpad";
+
+        "${modifier}+r" = "mode resize";
+
         "XF86MonBrightnessUp" = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -inc 5";
         "XF86MonBrightnessDown" = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -dec 5";
 
@@ -40,17 +44,29 @@
         "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
         "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+      };
+    modes = {
+      resize = {
+        "h" = "resize shrink width 5 px or 5 ppt";
+        "j" = "resize grow height 5 px or 5 ppt";
+        "k" = "resize shrink height 5 px or 5 ppt";
+        "l" = "resize grow width 5 px or 5 ppt";
+        "Escape" = "mode default";
+        "Return" = "mode default";
+      };
     };
     startup = [
+      { command = "compton"; always = true; notification = false; }
       { command = "${pkgs.feh}/bin/feh --bg-fill ${./matador-rocks.jpg}"; always = true; notification = false; }
       { command = "systemctl --user restart polybar"; always = true; notification = false; }
       { command = "${pkgs.xss-lock}/bin/xss-lock -- ${pkgs.i3lock}/bin/i3lock --nofork --color 000000"; always = true; notification = false; }
+      { command = "${pkgs.autorandr}/bin/autorandr --change"; always = true; notification = false; }
       {
         command = ''
           ${pkgs.xidlehook}/bin/xidlehook \
           --socket /tmp/xidlehook.sock \
           --not-when-fullscreen \
-          --timer primary 120 '${pkgs.i3lock}/bin/i3lock --nofork --color 000000' ""
+          --timer 120 '${pkgs.i3lock}/bin/i3lock --nofork --color 000000' ""
         '';
         always = true;
         notification = false;

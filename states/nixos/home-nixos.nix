@@ -48,5 +48,6 @@
   services.polybar = import ./programs/polybar.nix { config = config; lib = lib; pkgs = pkgs; };
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
+  services.udiskie = { enable = true; notify = false; };
   xsession.windowManager.i3 = import ./programs/i3/i3.nix { config = config; lib = lib; pkgs = pkgs; };
 }
