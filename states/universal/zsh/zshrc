@@ -20,7 +20,8 @@ zplug "junegunn/fzf-bin", \
     use:"*linux*amd64*", \
     if:"[[ $OSTYPE == *linux* ]]"
 
-zplug 'simnalamburt/shellder', as:theme
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "lib/history", from:oh-my-zsh
 zplug "plugins/shrink-path",   from:oh-my-zsh
 zplug load
