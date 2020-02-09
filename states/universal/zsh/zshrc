@@ -37,6 +37,7 @@ bindkey -e
 if test -f ~/.credentials; then source $HOME/.credentials; fi
 if command -v exa > /dev/null; then alias ls=exa; fi
 if command -v nvim > /dev/null; then alias vi=nvim; fi
+alias https="http --default-scheme=https"
 alias la="ls -la"
 alias ll="ls -l"
 alias vim=vi
