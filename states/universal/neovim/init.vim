@@ -39,6 +39,7 @@ Plug 'wellle/targets.vim'
 Plug 'fatih/vim-go',                 { 'for': 'go' }
 Plug 'saltstack/salt-vim',           { 'for': 'sls' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'tsx' }
+Plug 'LnL7/vim-nix',                 { 'for': 'nix' }
 
 call plug#end()
 
