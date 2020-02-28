@@ -58,6 +58,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    brightnessctl
     firefox
     git
     vim
@@ -121,7 +122,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.metz = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "video" ];
     shell = pkgs.zsh;
   };
 

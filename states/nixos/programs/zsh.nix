@@ -13,7 +13,7 @@
     DOTFILES = "$HOME/src/dotfiles";
     EDITOR = "nvim";
     GOPATH = "$HOME/go";
-    PATH = "$PATH:$GOPATH/bin";
+    PATH = "$PATH:$GOPATH/bin:$HOME/bin";
   };
   shellAliases = {
     cat = "bat";

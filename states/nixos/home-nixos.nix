@@ -9,6 +9,7 @@
   home.packages = [
     pkgs.arandr
     pkgs.autorandr
+    pkgs.bc
     pkgs.calibre
     pkgs.compton
     pkgs.dmenu
@@ -30,7 +31,8 @@
     pkgs.xautolock
     pkgs.xclip
     pkgs.xidlehook
-    pkgs.xorg.xbacklight
+    pkgs.acpilight
+    pkgs.brightnessctl
     pkgs.xorg.xev
     pkgs.xss-lock
     (pkgs.zathura.override { useMupdf = true; })

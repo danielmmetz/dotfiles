@@ -56,7 +56,7 @@
       };
     };
     startup = [
-      { command = "compton"; always = true; notification = false; }
+      { command = "compton --backend glx --vsync"; always = true; notification = false; }
       { command = "${pkgs.feh}/bin/feh --bg-fill ${./matador-rocks.jpg}"; always = true; notification = false; }
       { command = "systemctl --user restart polybar"; always = true; notification = false; }
       { command = "${pkgs.xss-lock}/bin/xss-lock -- ${pkgs.i3lock}/bin/i3lock --nofork --color 000000"; always = true; notification = false; }
