@@ -55,6 +55,10 @@
     git
     vim
     zsh
+
+    gnome3.zenity
+    (perl.withPackages(p: [ p.NetTelnet ]))
+    (openvpn.override { pkcs11Support = true; pkcs11helper = pkgs.pkcs11helper; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -75,6 +79,19 @@
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
 
+  services.dnsmasq.enable = true;
+  services.dnsmasq.extraConfig = ''
+    server=/lyft.net/192.168.144.1
+    server=/lyft.net/192.168.192.1
+    server=/lyft.net/192.168.160.1
+    server=/lyft.net/192.168.194.1
+    server=/lyft.net/192.168.176.1
+    server=/lyft.net/192.168.196.1
+    server=/jira.lyft.net/#
+    server=/confluence.lyft.net/#
+  '';
+
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -85,6 +102,8 @@
     enable = true;
     package = pkgs.pulseaudioFull;
   };
+
+  services.pcscd.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

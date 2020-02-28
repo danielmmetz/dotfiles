@@ -62,4 +62,9 @@
 
   services.polybar = import ./programs/polybar.nix { config = config; lib = lib; pkgs = pkgs; };
   xsession.windowManager.i3 = import ./programs/i3/i3.nix { config = config; lib = lib; pkgs = pkgs; };
+
+  xdg.configFile."pip/pip.conf".text = ''
+    [global]
+    extra-index-url = https://pypi.lyft.net/pypi/
+  '';
 }
