@@ -75,5 +75,9 @@
     eval "$(fasd --init auto)"
 
     if test -f ~/.credentials; then source $HOME/.credentials; fi
+
+    source /home/metz/src/lyft/blessclient/lyftprofile  # bless ssh alias
+    source /home/metz/src/lyft/awsaccess/awsaccess2.sh
+    source /home/metz/src/lyft/awsaccess/oktaawsaccess.sh
   '';
 }
