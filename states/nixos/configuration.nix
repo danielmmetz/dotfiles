@@ -13,16 +13,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      device = "/dev/disk/by-uuid/1341a9de-95d9-4587-9034-806337c728fd";
-      preLVM = true;
-      allowDiscards = true;
-    }
-  ];
 
   networking.hostName = "metz-x1"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -115,7 +107,6 @@
 
   # Enable the KDE Desktop Environment.
   services.dbus.packages = with pkgs; [ gnome3.dconf ];
-  services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.i3.enable = true;
 

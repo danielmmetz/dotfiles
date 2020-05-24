@@ -10,7 +10,7 @@
   history.extended = true;
   history.size = 50000;
   sessionVariables = {
-    DOTFILES = "$HOME/src/dotfiles";
+    DOTFILES = "$HOME/src/danielmmetz/dotfiles";
     EDITOR = "nvim";
     GOPATH = "$HOME/go";
     PATH = "$PATH:$GOPATH/bin:$HOME/bin";

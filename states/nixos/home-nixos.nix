@@ -3,13 +3,16 @@
 {
   imports = [
     ./home-common.nix
+    ./home-lyft.nix
     ./programs/pa-set-sink/pa-set-sink.nix
   ];
 
   home.packages = [
+    pkgs.acpilight
     pkgs.arandr
     pkgs.autorandr
     pkgs.bc
+    pkgs.brightnessctl
     pkgs.calibre
     pkgs.compton
     pkgs.dmenu
@@ -19,20 +22,15 @@
     pkgs.networkmanager_dmenu
     pkgs.pavucontrol
     pkgs.pcmanfm
-    pkgs.pipenv
     pkgs.playerctl
-    pkgs.pythonPackages.python-language-server
     pkgs.psmisc
     pkgs.rofi
-    pkgs.slack
     pkgs.speedtest-cli
     pkgs.usbutils
     pkgs.wmctrl
     pkgs.xautolock
     pkgs.xclip
     pkgs.xidlehook
-    pkgs.acpilight
-    pkgs.brightnessctl
     pkgs.xorg.xev
     pkgs.xss-lock
     (pkgs.zathura.override { useMupdf = true; })
@@ -58,8 +56,5 @@
   };
 
   services.polybar = import ./programs/polybar.nix { config = config; lib = lib; pkgs = pkgs; };
-  services.redshift.enable = true;
-  services.redshift.provider = "geoclue2";
-  services.udiskie = { enable = true; notify = false; };
   xsession.windowManager.i3 = import ./programs/i3/i3.nix { config = config; lib = lib; pkgs = pkgs; };
 }

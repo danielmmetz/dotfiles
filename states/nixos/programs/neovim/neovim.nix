@@ -115,6 +115,9 @@
     let g:strip_whitespace_confirm = 0
     let g:strip_whitespace_on_save = 1
 
+    " fzf.vim
+    let g:fzf_preview_window = ""
+
     " vim-go
     let g:go_fmt_command = "goimports"
     let g:go_code_completion_enabled = 0  " use coc.nvim instead
