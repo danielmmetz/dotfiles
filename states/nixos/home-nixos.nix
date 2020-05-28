@@ -16,8 +16,12 @@
     pkgs.calibre
     pkgs.compton
     pkgs.dmenu
+    pkgs.firefox
     pkgs.gcc
+    pkgs.gitAndTools.pre-commit
     pkgs.gnumake
+    pkgs.go
+    pkgs.google-chrome
     pkgs.gptfdisk
     pkgs.networkmanager_dmenu
     pkgs.pavucontrol
@@ -26,6 +30,7 @@
     pkgs.psmisc
     pkgs.rofi
     pkgs.speedtest-cli
+    pkgs.spotify
     pkgs.usbutils
     pkgs.wmctrl
     pkgs.xautolock

@@ -9,17 +9,14 @@
     pkgs.fasd
     pkgs.fd
     pkgs.feh
-    pkgs.firefox
     pkgs.font-awesome
     pkgs.fzf
     pkgs.git
     pkgs.gitAndTools.hub
-    pkgs.gitAndTools.pre-commit
-    pkgs.go
-    pkgs.google-chrome
     pkgs.gron
     pkgs.htop
     pkgs.httpie
+    pkgs.icdiff
     pkgs.jq
     pkgs.kitty
     pkgs.mpv
@@ -31,7 +28,6 @@
     pkgs.ripgrep
     pkgs.silver-searcher
     pkgs.source-code-pro
-    pkgs.spotify
     pkgs.tldr
     pkgs.tree
     pkgs.ubuntu_font_family
