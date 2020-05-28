@@ -25,6 +25,24 @@
     vim = "nvim";
     vimrc = "cd $DOTFILES && nvim ./states/nixos/programs/neovim/neovim.nix && cd -$";
     zshrc = "cd $DOTFILES && nvim ./states/nixos/programs/zsh.nix && cd -$";
+
+
+    deploys = "kubectl --kubeconfig ~/.kube/deploys.kubeconfig";
+    deploysstaging = "kubectl --kubeconfig ~/.kube/deploysstaging.kubeconfig";
+    omnicron-staging = "kubectl --kubeconfig ~/.kube/omnicron-staging.kubeconfig";
+    omnicron-prod = "kubectl --kubeconfig ~/.kube/omnicron-prod.kubeconfig";
+    cs0 = "kubectl --kubeconfig ~/.kube/core-staging-0.kubeconfig";
+    cs1 = "kubectl --kubeconfig ~/.kube/core-staging-1.kubeconfig";
+    cs2 = "kubectl --kubeconfig ~/.kube/core-staging-2.kubeconfig";
+    cs3 = "kubectl --kubeconfig ~/.kube/core-staging-3.kubeconfig";
+    cs4 = "kubectl --kubeconfig ~/.kube/core-staging-4.kubeconfig";
+    cp0 = "kubectl --kubeconfig ~/.kube/core-prod-0.kubeconfig";
+    cp1 = "kubectl --kubeconfig ~/.kube/core-prod-1.kubeconfig";
+    cp2 = "kubectl --kubeconfig ~/.kube/core-prod-2.kubeconfig";
+    cp3 = "kubectl --kubeconfig ~/.kube/core-prod-3.kubeconfig";
+    cp4 = "kubectl --kubeconfig ~/.kube/core-prod-4.kubeconfig";
+    infra = "kubectl --kubeconfig ~/.kube/infra.kubeconfig";
+    infrastaging = "kubectl --kubeconfig ~/.kube/infrastaging.kubeconfig";
   };
   plugins = [
     {
@@ -76,8 +94,9 @@
 
     if test -f ~/.credentials; then source $HOME/.credentials; fi
 
-    source /home/metz/src/lyft/blessclient/lyftprofile  # bless ssh alias
-    source /home/metz/src/lyft/awsaccess/awsaccess2.sh
-    source /home/metz/src/lyft/awsaccess/oktaawsaccess.sh
+    eval "$(/opt/lyft/brew/bin/aactivator init)"
+    source "$HOME/src/lyft/blessclient/lyftprofile"  # bless ssh alias
+    source "$HOME/src/lyft/awsaccess/awsaccess2.sh"
+    source "$HOME/src/lyft/awsaccess/oktaawsaccess.sh"
   '';
 }

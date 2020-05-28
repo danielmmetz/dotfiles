@@ -45,3 +45,9 @@ cask "steam"
 cask "vlc"
 cask "font-source-code-pro"
 cask "font-source-code-pro-for-powerline"
+
+# Lyft specific
+brew "aws-iam-authenticator"
+brew "aws-okta"
+brew "awscli"
+brew "kubectl"
