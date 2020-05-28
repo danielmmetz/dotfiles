@@ -14,6 +14,7 @@
     EDITOR = "nvim";
     GOPATH = "$HOME/go";
     PATH = "$PATH:$GOPATH/bin:$HOME/bin";
+    NIX_SH = "$HOME/.nix-profile/etc/profile.d/nix.sh";
   };
   shellAliases = {
     cat = "bat";
@@ -64,6 +65,8 @@
     }
   ];
   initExtra = ''
+    if test -f "$NIX_SH"; then source "$NIX_SH"; fi
+
     autoload -U promptinit; promptinit
     prompt pure
 
