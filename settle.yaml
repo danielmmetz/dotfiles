@@ -23,8 +23,6 @@ brew:
     - name: bandwhich
     - name: bash
     - name: bat
-    - name: cheat
-    - name: chezmoi
     - name: coreutils
     - name: ctags
     - name: exa
@@ -68,7 +66,6 @@ brew:
     - name: watch
     - name: wget
     - name: yamllint
-    - name: yarn
     - name: zsh
     # Lyft specific
     - name: aws-iam-authenticator
@@ -84,6 +81,7 @@ brew:
     - font-source-code-pro
     - font-source-code-pro-for-powerline
     - kitty
+    - plex
     - spectacle
     - spotify
     - steam
