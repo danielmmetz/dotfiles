@@ -83,6 +83,7 @@ brew:
     - font-source-code-pro-for-powerline
     - kitty
     - plex
+    - signal
     - spectacle
     - spotify
     - steam
