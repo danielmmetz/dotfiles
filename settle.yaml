@@ -1,0 +1,334 @@
+files:
+  - src: gitconfig
+    dst: ~/.gitconfig
+  - src: kitty.conf
+    dst: ~/.config/kitty/kitty.conf
+
+brew:
+  taps:
+    - homebrew/core
+    - homebrew/bundle
+    - homebrew/services
+    - homebrew/cask
+    - homebrew/cask-fonts
+    - homebrew/cask-versions
+    - neovim/neovim
+  pkgs:
+    # needed for neovim HEAD
+    # remove after neovim releases v0.5.0
+    - name: cmake
+    - name: luarocks
+    - name: pkg-config
+    # core
+    - name: bandwhich
+    - name: bash
+    - name: bat
+    - name: cheat
+    - name: chezmoi
+    - name: coreutils
+    - name: ctags
+    - name: exa
+    - name: fasd
+    - name: fish
+    - name: fzf
+    - name: gh
+    - name: git
+    - name: go
+    - name: golangci/tap/golangci-lint
+    - name: htop
+    - name: hub
+    - name: jq
+    - name: make
+    - name: ncdu
+    - name: neovim
+      args: [ HEAD ]  # remove after neovim releases v0.5.0
+    - name: node
+    - name: openssl
+    - name: pandoc
+    - name: postgresql
+    - name: pre-commit
+    - name: python
+    - name: ranger
+    - name: rename
+    - name: ripgrep
+    - name: rsync
+    - name: ruby
+    - name: shellcheck
+    - name: shfmt
+    - name: skopeo
+    - name: speedtest-cli
+    - name: svn
+    - name: terraform
+    - name: the_silver_searcher
+    - name: tldr
+    - name: tmux
+    - name: tree
+    - name: unrar
+    - name: vim
+    - name: watch
+    - name: wget
+    - name: yamllint
+    - name: yarn
+    - name: zsh
+    # Lyft specific
+    - name: aws-iam-authenticator
+    - name: aws-okta
+    - name: awscli
+    - name: kubectl
+  casks:
+    - alfred
+    - appcleaner
+    - calibre
+    - docker
+    - dotnet
+    - font-source-code-pro
+    - font-source-code-pro-for-powerline
+    - kitty
+    - spectacle
+    - spotify
+    - steam
+    - the-unarchiver
+    - vlc
+
+zsh:
+  zinit:
+    - ice pick=async.zsh src=pure.zsh
+    - light sindresorhus/pure
+    - light zdharma/fast-syntax-highlighting
+    - snippet OMZ::plugins/fasd/fasd.plugin.zsh
+    - snippet OMZ::plugins/fzf/fzf.plugin.zsh
+  history:
+    size: 50000
+    share_history: true
+  variables:
+    - {name: DOTFILES, value: "$HOME/src/danielmmetz/dotfiles"}
+    - {name: EDITOR, value: "nvim"}
+    - {name: GOPATH, value: "$HOME/go"}
+    - {name: PATH, value: "$PATH:$GOPATH/bin:$HOME/bin"}
+    - {name: HOMEBREW_NO_AUTO_UPDATE, value: "1"}
+    - {name: PATH, value: '"$PATH:$HOME/go/bin:$HOME/bin"'}
+  aliases:
+    - {name: cat, value: "bat"}
+    - {name: la, value: "ls -la"}
+    - {name: ll, value: "ls -l"}
+    - {name: ls, value: "exa"}
+    - {name: vi, value: "nvim"}
+    - {name: vim, value: "nvim"}
+    - {name: vimrc, value: "nvim $DOTFILES/settle.yaml"}
+    - {name: zshrc, value: "nvim $DOTFILES/settle.yaml"}
+  functions:
+    - name: clone
+      value: "gh repo clone $(jq -r .$1.repository ~/Desktop/aggrefest.json | sed -e 's/^.*://g' -e 's/.git$//g')"
+    - name: repo
+      value: "jq -r .$1.repository ~/Desktop/aggrefest.json"
+    - name: version
+      value: "deploycontrol version -environment production -project $1 | jq -r '.releases.production'"
+    - name: version-staging
+      value: "deploycontrol version -environment staging -project $1 | jq -r '.releases.staging'"
+    - name: version-development
+      value: "deploycontrol version -environment staging -project $1 | jq -r '.releases.development'"
+    - name: asgs-min-max
+      value: |
+          aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names $@ \
+          | jq -c '.AutoScalingGroups[] | {"Name": .AutoScalingGroupName, "Min": .MinSize, "Max": .MaxSize, "LaunchConfigurationName": .LaunchConfigurationName}'
+    - name: black36
+      value: "black --target-version py36 --line-length 120 $@"
+    - name: black38
+      value: "black --target-version py38 --line-length 120 $@"
+  extra_prefix: |
+    if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+        echo "Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…"
+        mkdir -p "$HOME/.zinit" && chmod g-rwX "$HOME/.zinit"
+        git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+            echo "Installation successful" || \
+            echo "The clone has failed."
+    fi
+
+    source "$HOME/.zinit/bin/zinit.zsh"
+    autoload -Uz _zinit
+    (( ${+_comps} )) && _comps[zinit]=_zinit
+  extra_suffix: |
+    if test -f ~/.credentials; then source $HOME/.credentials; fi
+
+nvim:
+  plugin_dir: /Users/dmetz/.vim/plugged
+  plugins:
+    # vim theming
+    - KeitaNakamura/neodark.vim
+    - vim-airline/vim-airline
+    - vim-airline/vim-airline-themes
+    # vim code navigation
+    - rafaqz/ranger.vim
+    - junegunn/fzf
+    - junegunn/fzf.vim
+    # vim editor ui
+    - mhinz/vim-signify
+    - neovim/nvim-lsp
+    - nvim-lua/completion-nvim
+    # vim enhancements
+    - mhinz/vim-sayonara
+    - tpope/vim-abolish
+    - tpope/vim-commentary
+    - tpope/vim-fugitive
+    - tpope/vim-repeat
+    - tpope/vim-rhubarb
+    - tpope/vim-sensible
+    - tpope/vim-surround
+    - tpope/vim-unimpaired
+    # vim editing enhancements
+    - itchyny/vim-cursorword
+    - jiangmiao/auto-pairs
+    - ntpeters/vim-better-whitespace
+    - machakann/vim-swap
+    - wellle/targets.vim
+    - chrisbra/SudoEdit.vim
+    - AndrewRadev/splitjoin.vim
+    # vim language specific
+    - fatih/vim-go
+    - LnL7/vim-nix
+    - HerringtonDarkholme/yats.vim
+    - hashivim/vim-terraform
+  config: |
+    lua << EOF
+      require'nvim_lsp'.gopls.setup{on_attach=require'completion'.on_attach}
+      require'nvim_lsp'.pyls_ms.setup{on_attach=require'completion'.on_attach}
+
+      -- disable diagnostics
+      vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+    EOF
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " augroups
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " irrelevant when using nix
+    " augroup VIMRC_AUTO_RELOAD
+    "     autocmd!
+    "     autocmd bufwritepost $MYVIMRC source $MYVIMRC
+    " augroup end
+
+    " augroup COC_SHOW_SIGNATURE_HELPER
+    "     autocmd!
+    "     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    " augroup end
+
+    " augroup GOIMPORTS
+    "     autocmd!
+    "     autocmd BufWritePre *.go call go#auto#fmt_autosave()
+    " augroup end
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " appearance / behavior
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    map <C-l> <silent>
+
+    colorscheme neodark
+
+    set autoread
+    set clipboard^=unnamed,unnamedplus
+    set cursorline
+    set visualbell
+    set mouse=a
+    set inccommand=nosplit
+
+    set nowrap
+    set number
+    set splitbelow
+    set splitright
+
+    set expandtab
+    set shiftwidth=4
+    set softtabstop=4
+    set smarttab
+    set tabstop=4
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " plugin overrides
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " airline
+    let g:airline#extensions#branch#enabled = 0
+    let g:airline#extensions#hunks#enabled = 0
+    let g:airline#extensions#tabline#enabled = 0
+    let g:airline#extensions#virtualenv#enabled = 0
+    let g:airline_powerline_fonts=1
+    let g:airline_theme='onedark'
+
+    " better whitespace
+    let g:better_whitespace_enabled = 0
+    let g:strip_whitelines_at_eof = 1
+    let g:strip_whitespace_confirm = 0
+    let g:strip_whitespace_on_save = 1
+
+    " fzf.vim
+    let g:fzf_preview_window = ""
+
+    " coc-nvim
+    " let g:coc_global_extensions = [
+    "     \"coc-go",
+    "     \"coc-python",
+    " \]
+
+    " vim-go
+    let g:go_fmt_command = "goimports"
+    let g:go_code_completion_enabled = 0  " use coc.nvim instead
+    let g:go_def_mapping_enabled = 0
+    let g:go_list_height = 0
+
+    " completion-nvim
+    let g:completion_trigger_keyword_length = 3
+    set completeopt=menuone,noinsert,noselect
+    set shortmess+=c
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " misc key maps
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    nnoremap Y y$
+    nnoremap B ^
+    nnoremap E $
+    nnoremap <C-n> :noh<CR>
+
+    tnoremap <Esc> <C-\><C-n>
+
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-l> <C-w>l
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " fzf
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    nnoremap <C-b> :Buffers<cr>
+    nnoremap <C-p> :GFiles<cr>
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " coc.nvim
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " nmap <leader>r <Plug>(coc-rename)
+    " nmap <silent> gd <Plug>(coc-definition)
+    " nmap <silent> gy <Plug>(coc-type-definition)
+    " nmap <silent> gi <Plug>(coc-implementation)
+    " nmap <silent> gr <Plug>(coc-references)
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " neovim lsp
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    nmap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
+    nmap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+    nmap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+    nmap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " ranger
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    command! Ranger call RangerEdit("edit")
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " sayonara
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    map <C-c> :Sayonara!<cr>
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " vim-swap
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    omap i, <Plug>(swap-textobject-i)
+    xmap i, <Plug>(swap-textobject-i)
+    omap a, <Plug>(swap-textobject-a)
+    xmap a, <Plug>(swap-textobject-a)

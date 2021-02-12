@@ -255,3 +255,8 @@ Session.vim
 Pipfile
 Pipfile.lock
 grains
+
+# aactivator
+venv
+.activate.sh
+.deactivate.sh

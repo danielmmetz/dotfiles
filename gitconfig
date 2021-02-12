@@ -1,0 +1,19 @@
+  [user]
+      name = Daniel Metz
+      email = danielmmetz@gmail.com
+
+  [url "ssh://git@github.com/"]
+  	  insteadOf = https://github.com/
+
+  [core]
+  	  editor = nvim
+  	  excludesfile = ~/.gitignore
+
+  [branch]
+  	  autosetuprebase = always
+
+  [pull]
+  	  ff = only
+
+  [alias]
+  	  hist = log --pretty=format:'%h %ad | %s%d [%an]' --date=short --abbrev-commit
