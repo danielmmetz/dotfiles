@@ -66,6 +66,7 @@ brew:
     - name: watch
     - name: wget
     - name: yamllint
+    - name: yq
     - name: zsh
     # Lyft specific
     - name: aws-iam-authenticator
