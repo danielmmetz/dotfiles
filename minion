@@ -1,8 +1,0 @@
-file_client: local
-local: true
-log_level: info
-state_output: changes
-state_verbose: False
-file_roots:
-  base:
-    - ./states
