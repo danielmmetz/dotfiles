@@ -109,6 +109,9 @@ zsh:
     - {name: PATH, value: "$PATH:$GOPATH/bin:$HOME/bin"}
     - {name: HOMEBREW_NO_AUTO_UPDATE, value: "1"}
     - {name: PATH, value: '"$PATH:$HOME/go/bin:$HOME/bin"'}
+    # lyft
+    - {name: GOPROXY, value: "https://athens.ingress.infra.us-east-1.k8s.lyft.net"}
+    - {name: GONOSUMDB, value: "github.com/lyft/*,github.lyft.net/*"}
   aliases:
     - {name: cat, value: "bat"}
     - {name: la, value: "ls -la"}
@@ -118,6 +121,31 @@ zsh:
     - {name: vim, value: "nvim"}
     - {name: vimrc, value: "nvim $DOTFILES/settle.yaml"}
     - {name: zshrc, value: "nvim $DOTFILES/settle.yaml"}
+    # lyft
+    - {name: manifest, value: "cat ~/Desktop/aggrefest.json | jq"}
+    - {name: update-aggrefest, value: "aws-okta exec zimride-sudo-developer -- aws s3 cp s3://lyft-control-iad/aggregated_manifests/development.json ~/Desktop/aggrefest.json"}
+    - {name: deploys, value: "kubectl --kubeconfig ~/.kube/deploys.kubeconfig"}
+    - {name: deploysstaging, value: "kubectl --kubeconfig ~/.kube/deploysstaging.kubeconfig"}
+    - {name: omnicron-staging, value: "kubectl --kubeconfig ~/.kube/omnicron-staging.kubeconfig"}
+    - {name: omnicron-prod, value: "kubectl --kubeconfig ~/.kube/omnicron-prod.kubeconfig"}
+    - {name: cs0, value: "kubectl --kubeconfig ~/.kube/core-staging-0.kubeconfig"}
+    - {name: cs1, value: "kubectl --kubeconfig ~/.kube/core-staging-1.kubeconfig"}
+    - {name: cs2, value: "kubectl --kubeconfig ~/.kube/core-staging-2.kubeconfig"}
+    - {name: cs3, value: "kubectl --kubeconfig ~/.kube/core-staging-3.kubeconfig"}
+    - {name: cs4, value: "kubectl --kubeconfig ~/.kube/core-staging-4.kubeconfig"}
+    - {name: cp0, value: "kubectl --kubeconfig ~/.kube/core-prod-0.kubeconfig"}
+    - {name: cp1, value: "kubectl --kubeconfig ~/.kube/core-prod-1.kubeconfig"}
+    - {name: cp2, value: "kubectl --kubeconfig ~/.kube/core-prod-2.kubeconfig"}
+    - {name: cp3, value: "kubectl --kubeconfig ~/.kube/core-prod-3.kubeconfig"}
+    - {name: cp4, value: "kubectl --kubeconfig ~/.kube/core-prod-4.kubeconfig"}
+    - {name: build0, value: "kubectl --kubeconfig ~/.kube/build0.kubeconfig"}
+    - {name: infra, value: "kubectl --kubeconfig ~/.kube/infra.kubeconfig"}
+    - {name: infrastaging, value: "kubectl --kubeconfig ~/.kube/infrastaging.kubeconfig"}
+    - {name: publicinfra, value: "kubectl --kubeconfig ~/.kube/publicinfra.kubeconfig"}
+    - {name: publicinfrastaging, value: "kubectl --kubeconfig ~/.kube/publicinfrastaging.kubeconfig"}
+    - {name: sidecar-test1, value: "kubectl --kubeconfig ~/.kube/sidecar-test1.kubeconfig"}
+    - {name: semistateful-staging, value: "kubectl --kubeconfig ~/.kube/semistateful-staging.kubeconfig"}
+    - {name: semistateful-production, value: "kubectl --kubeconfig ~/.kube/semistateful-production.kubeconfig"}
   functions:
     - name: clone
       value: "gh repo clone $(jq -r .$1.repository ~/Desktop/aggrefest.json | sed -e 's/^.*://g' -e 's/.git$//g')"
@@ -151,6 +179,11 @@ zsh:
     (( ${+_comps} )) && _comps[zinit]=_zinit
   extra_suffix: |
     if test -f ~/.credentials; then source $HOME/.credentials; fi
+
+    eval "$(/opt/lyft/brew/bin/aactivator init)"
+    source "$HOME/src/lyft/blessclient/lyftprofile"  # bless ssh alias
+    source "$HOME/src/lyft/awsaccess/awsaccess2.sh"
+    source "$HOME/src/lyft/awsaccess/oktaawsaccess.sh"
 
 nvim:
   plugin_dir: /Users/dmetz/.vim/plugged
