@@ -46,6 +46,7 @@ brew:
     - name: postgresql
     - name: pre-commit
     - name: python
+    - name: python-yq
     - name: ranger
     - name: rename
     - name: ripgrep
@@ -66,7 +67,6 @@ brew:
     - name: watch
     - name: wget
     - name: yamllint
-    - name: yq
     - name: zsh
     # Lyft specific
     - name: aws-iam-authenticator
