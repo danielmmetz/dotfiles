@@ -31,6 +31,7 @@ brew:
     - name: fzf
     - name: gh
     - name: git
+    - name: gron
     - name: go
     - name: golangci/tap/golangci-lint
     - name: htop
