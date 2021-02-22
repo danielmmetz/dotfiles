@@ -27,6 +27,7 @@ brew:
     - name: ctags
     - name: exa
     - name: fasd
+    - name: fd
     - name: fish
     - name: fzf
     - name: gh
