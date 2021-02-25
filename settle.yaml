@@ -75,6 +75,7 @@ brew:
     - name: aws-okta
     - name: awscli
     - name: kubectl
+    - name: black
   casks:
     - alfred
     - appcleaner
